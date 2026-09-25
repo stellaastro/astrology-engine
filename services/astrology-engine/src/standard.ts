@@ -20,4 +20,7 @@
 //                  gana, nadi, tatva and the name syllable (ADR-091).
 // 1.5  2026-09-25  The sixteen Parashari divisional charts, D1 to D60, with
 //                  the Parashara (Cancer-Leo) hora for D2 (ADR-091).
-export const CALCULATION_STANDARD_VERSION = 'stella-jyotish-1.5';
+// 1.6  2026-09-25  Dosha checks as placements: Manglik from the Lagna, Moon
+//                  and Venus; Kaal Sarp by longitude; Sade Sati and Dhaiya
+//                  from Saturn's sign changes, to the second (ADR-091).
+export const CALCULATION_STANDARD_VERSION = 'stella-jyotish-1.6';

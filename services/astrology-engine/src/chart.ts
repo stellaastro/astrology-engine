@@ -7,6 +7,8 @@ import { elongation, karanaOf, tithiOf, varaOf, weekdayOf, yogaAngle, yogaOf } f
 import { rashiOf, wholeSignHouse, type Graha } from './jyotish/rashi';
 import { DIVISIONS, VARGA_NAMES, navamsaSignNumber, vargaSignNumber } from './jyotish/varga';
 import { avakhadaOf } from './jyotish/avakhada';
+import { kaalSarpOf, manglikOf } from './jyotish/dosha';
+import { sadeSatiOf, SADE_SATI_YEARS } from './sade-sati';
 import { solarYearClock, vimshottari, type DashaPeriod } from './jyotish/dasha';
 
 const GRAHAS: Graha[] = ['sun', 'moon', 'mars', 'mercury', 'jupiter', 'venus', 'saturn', 'rahu', 'ketu'];
@@ -93,6 +95,8 @@ export function computeChart(engine: Engine, input: ParsedInput) {
     })),
     // Standard birth details, all read from the Moon (ADR-091, Stage 2b).
     avakhada: avakhadaOf(moon),
+    // Dosha checks as placements, with no cancellations applied (Stage 2d).
+    doshas: doshasOf(engine, positions, angles.ascendant, jd.ut1),
     dasha: {
       system: 'vimshottari' as const,
       startedFrom: 'moon' as const,
@@ -109,5 +113,27 @@ export function computeChart(engine: Engine, input: ParsedInput) {
       sunriseStatus: sunriseJd === null ? ('not_found' as const) : ('found' as const),
     },
     meta: { ...engine.meta(jd, positions.get('moon')!.flag), calculatedAt: new Date().toISOString() },
+  };
+}
+
+function doshasOf(engine: Engine, positions: Map<Graha, Position>, ascendant: number, birthJd: number) {
+  const longitude = (id: Graha) => positions.get(id)!.longitude;
+  const moonSign = rashiOf(longitude('moon')).signNumber - 1;
+  const iso = (jd: number | null) => (jd === null ? null : engine.eph.utcIso(jd));
+  const signName = (index: number) => rashiOf(index * 30 + 15).sign;
+  const sade = sadeSatiOf(engine, moonSign, birthJd, SADE_SATI_YEARS);
+  return {
+    manglik: manglikOf(longitude('mars'), { lagna: ascendant, moon: longitude('moon'), venus: longitude('venus') }),
+    kaalSarp: kaalSarpOf(Object.fromEntries(GRAHAS.map((id) => [id, longitude(id)])) as Record<Graha, number>, ascendant),
+    sadeSati: {
+      moonSign: moonSign + 1,
+      years: SADE_SATI_YEARS,
+      until: iso(sade.endJd),
+      cycles: sade.cycles.map((c) => ({
+        start: iso(c.start), end: iso(c.end),
+        phases: c.phases.map((p) => ({ phase: p.phase, signNumber: p.sign + 1, sign: signName(p.sign), start: iso(p.start), end: iso(p.end) })),
+      })),
+      dhaiya: sade.dhaiya.map((d) => ({ kind: d.kind, signNumber: d.sign + 1, sign: signName(d.sign), start: iso(d.start), end: iso(d.end) })),
+    },
   };
 }
