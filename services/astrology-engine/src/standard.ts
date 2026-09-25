@@ -6,4 +6,9 @@
 //
 // The golden snapshot test is keyed by this value: outputs that change without
 // a bump fail it. Never regenerate an existing version's snapshot; bump instead.
-export const CALCULATION_STANDARD_VERSION = 'stella-jyotish-1.0';
+//
+// 1.0  2026-09-25  First standard.
+// 1.1  2026-09-25  'true' positions mode (SEFLG_TRUEPOS) with its Lagna rule,
+//                  so the engine can follow Jagannatha Hora's default settings
+//                  (ADR-091). Production: true_citra, mean nodes, true positions.
+export const CALCULATION_STANDARD_VERSION = 'stella-jyotish-1.1';

@@ -18,7 +18,7 @@ function start(): void {
   const server = createEngineServer(engine);
   server.listen(engine.config.port, HOST, () => {
     const b = engine.describeEngine();
-    console.log(`astrology-engine ${b.version} (${b.commit ?? 'development'}) on ${HOST}:${engine.config.port} · Swiss Ephemeris ${engine.eph.sweVersion} · files ${engine.eph.identity.commit.slice(0, 7)} · ${engine.config.ayanamsa}/${engine.config.node} node/${engine.config.sunrise}`);
+    console.log(`astrology-engine ${b.version} (${b.commit ?? 'development'}) on ${HOST}:${engine.config.port} · Swiss Ephemeris ${engine.eph.sweVersion} · files ${engine.eph.identity.commit.slice(0, 7)} · ${engine.config.ayanamsa}/${engine.config.node} node/${engine.config.sunrise}/${engine.config.positions} positions`);
   });
   const stop = () => server.close(() => process.exit(0));
   process.on('SIGTERM', stop);

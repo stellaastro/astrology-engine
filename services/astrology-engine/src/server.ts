@@ -61,7 +61,7 @@ export function version(engine: Engine) {
     calculationStandardVersion: CALCULATION_STANDARD_VERSION,
     swissEphemeris: { version: engine.eph.sweVersion, swephPackage: engine.eph.swephPackage },
     ephemeris: engine.eph.identity,
-    config: { ayanamsa: engine.config.ayanamsa, node: engine.config.node, houseSystem: 'whole_sign', sunrise: engine.config.sunrise },
+    config: { ayanamsa: engine.config.ayanamsa, node: engine.config.node, houseSystem: 'whole_sign', sunrise: engine.config.sunrise, positions: engine.config.positions },
   };
 }
 

@@ -3,7 +3,7 @@
   "program": "swetest",
   "swissEphemeris": "2.10.03",
   "ephemerisCommit": "cae9ecd4b201544d85e411aced17660932514d43",
-  "generatedAt": "2026-09-25T07:20:14.789Z"
+  "generatedAt": "2026-09-25T16:35:37.967Z"
  },
  "positions": [
   {
@@ -139,6 +139,49 @@
     "ascendant": 151.559225,
     "mc": 61.5976579,
     "house1": 150
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 61.9739421,
+      "speed": 0.9547552
+     },
+     "moon": {
+      "longitude": 130.1502679,
+      "speed": 14.1961029
+     },
+     "mars": {
+      "longitude": 115.8787945,
+      "speed": 0.5844325
+     },
+     "mercury": {
+      "longitude": 54.6277469,
+      "speed": -0.4408167
+     },
+     "jupiter": {
+      "longitude": 143.2316082,
+      "speed": 0.0999484
+     },
+     "venus": {
+      "longitude": 88.6067875,
+      "speed": 1.2083572
+     },
+     "saturn": {
+      "longitude": 357.3160712,
+      "speed": 0.0759667
+     },
+     "trueNode": {
+      "longitude": 114.2473967,
+      "speed": 0.0157423
+     },
+     "meanNode": {
+      "longitude": 115.6952406,
+      "speed": -0.0529921
+     }
+    },
+    "tropicalAscendant": 172.1837549,
+    "tropicalMc": 82.2221878,
+    "appliedAyanamsa": 21.7548445
    }
   },
   {
@@ -274,6 +317,49 @@
     "ascendant": 221.9390765,
     "mc": 135.6727325,
     "house1": 210
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 327.7139724,
+      "speed": 0.9982216
+     },
+     "moon": {
+      "longitude": 7.3687594,
+      "speed": 14.6119351
+     },
+     "mars": {
+      "longitude": 231.6561534,
+      "speed": 0.4860354
+     },
+     "mercury": {
+      "longitude": 311.2891837,
+      "speed": -0.4645439
+     },
+     "jupiter": {
+      "longitude": 188.7271324,
+      "speed": -0.0705858
+     },
+     "venus": {
+      "longitude": 282.097548,
+      "speed": 1.0991542
+     },
+     "saturn": {
+      "longitude": 298.4866418,
+      "speed": 0.1100189
+     },
+     "trueNode": {
+      "longitude": 355.5413469,
+      "speed": 0.0150106
+     },
+     "meanNode": {
+      "longitude": 356.9369132,
+      "speed": -0.0529921
+     }
+    },
+    "tropicalAscendant": 242.9194279,
+    "tropicalMc": 156.6530839,
+    "appliedAyanamsa": 22.0998702
    }
   },
   {
@@ -409,6 +495,49 @@
     "ascendant": 234.1433832,
     "mc": 155.8290897,
     "house1": 210
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 257.7083217,
+      "speed": 1.0197635
+     },
+     "moon": {
+      "longitude": 249.9657052,
+      "speed": 14.3227056
+     },
+     "mars": {
+      "longitude": 261.4275743,
+      "speed": 0.7703436
+     },
+     "mercury": {
+      "longitude": 236.5553619,
+      "speed": 1.2768149
+     },
+     "jupiter": {
+      "longitude": 218.6920192,
+      "speed": 0.1954835
+     },
+     "venus": {
+      "longitude": 283.9341246,
+      "speed": 1.2433873
+     },
+     "saturn": {
+      "longitude": 245.2733896,
+      "speed": 0.1162535
+     },
+     "trueNode": {
+      "longitude": 237.8175195,
+      "speed": -0.0152447
+     },
+     "meanNode": {
+      "longitude": 236.7104763,
+      "speed": -0.052992
+     }
+    },
+    "tropicalAscendant": 255.4776067,
+    "tropicalMc": 177.1633132,
+    "appliedAyanamsa": 22.4459882
    }
   },
   {
@@ -544,6 +673,49 @@
     "ascendant": 253.0181275,
     "mc": 198.758516,
     "house1": 240
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 206.0416917,
+      "speed": 1.0064697
+     },
+     "moon": {
+      "longitude": 215.085208,
+      "speed": 12.2997132
+     },
+     "mars": {
+      "longitude": 265.002455,
+      "speed": 0.7551669
+     },
+     "mercury": {
+      "longitude": 216.6779915,
+      "speed": -0.9503071
+     },
+     "jupiter": {
+      "longitude": 141.9932789,
+      "speed": 0.144747
+     },
+     "venus": {
+      "longitude": 239.6239989,
+      "speed": 1.2222226
+     },
+     "saturn": {
+      "longitude": 149.5577669,
+      "speed": 0.0869727
+     },
+     "trueNode": {
+      "longitude": 193.8270044,
+      "speed": -0.0185969
+     },
+     "meanNode": {
+      "longitude": 192.939221,
+      "speed": -0.0529921
+     }
+    },
+    "tropicalAscendant": 274.6374836,
+    "tropicalMc": 220.3778722,
+    "appliedAyanamsa": 22.7370281
    }
   },
   {
@@ -679,6 +851,49 @@
     "ascendant": 216.0789152,
     "mc": 126.4369322,
     "house1": 210
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 165.2951964,
+      "speed": 0.9838613
+     },
+     "moon": {
+      "longitude": 72.3704301,
+      "speed": 11.8536744
+     },
+     "mars": {
+      "longitude": 166.5638372,
+      "speed": 0.6545615
+     },
+     "mercury": {
+      "longitude": 182.2273168,
+      "speed": -0.4291506
+     },
+     "jupiter": {
+      "longitude": 89.5385742,
+      "speed": 0.1215739
+     },
+     "venus": {
+      "longitude": 153.7030328,
+      "speed": 1.245534
+     },
+     "saturn": {
+      "longitude": 49.4391131,
+      "speed": -0.0127208
+     },
+     "trueNode": {
+      "longitude": 130.6404805,
+      "speed": -0.0061853
+     },
+     "meanNode": {
+      "longitude": 129.2836943,
+      "speed": -0.0529922
+     }
+    },
+    "tropicalAscendant": 237.9954666,
+    "tropicalMc": 148.3534836,
+    "appliedAyanamsa": 23.042429
    }
   },
   {
@@ -814,6 +1029,49 @@
     "ascendant": 38.8734706,
     "mc": 292.5944605,
     "house1": 30
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 118.0097531,
+      "speed": 0.9608993
+     },
+     "moon": {
+      "longitude": 93.9988925,
+      "speed": 15.0865919
+     },
+     "mars": {
+      "longitude": 67.4786419,
+      "speed": 0.6576984
+     },
+     "mercury": {
+      "longitude": 103.7014828,
+      "speed": 1.8053501
+     },
+     "jupiter": {
+      "longitude": 205.8954218,
+      "speed": 0.085438
+     },
+     "venus": {
+      "longitude": 112.5885877,
+      "speed": 1.2350484
+     },
+     "saturn": {
+      "longitude": 110.4956657,
+      "speed": 0.1277963
+     },
+     "trueNode": {
+      "longitude": 35.7609198,
+      "speed": -0.1436999
+     },
+     "meanNode": {
+      "longitude": 35.0848392,
+      "speed": -0.0529921
+     }
+    },
+    "tropicalAscendant": 60.8540914,
+    "tropicalMc": 314.5750813,
+    "appliedAyanamsa": 23.1103365
    }
   },
   {
@@ -949,6 +1207,49 @@
     "ascendant": 204.3995808,
     "mc": 124.7466472,
     "house1": 180
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 21.488713,
+      "speed": 0.9680107
+     },
+     "moon": {
+      "longitude": 191.2724065,
+      "speed": 12.0442709
+     },
+     "mars": {
+      "longitude": 53.5733337,
+      "speed": 0.6639994
+     },
+     "mercury": {
+      "longitude": 35.752898,
+      "speed": 1.9153858
+     },
+     "jupiter": {
+      "longitude": 90.3626672,
+      "speed": 0.136941
+     },
+     "venus": {
+      "longitude": 350.4384221,
+      "speed": 1.202896
+     },
+     "saturn": {
+      "longitude": 204.8961207,
+      "speed": -0.0750641
+     },
+     "trueNode": {
+      "longitude": 243.819963,
+      "speed": -0.1233964
+     },
+     "meanNode": {
+      "longitude": 245.5821884,
+      "speed": -0.052992
+     }
+    },
+    "tropicalAscendant": 226.5010896,
+    "tropicalMc": 146.848156,
+    "appliedAyanamsa": 23.2181207
    }
   },
   {
@@ -1084,6 +1385,49 @@
     "ascendant": 39.3907322,
     "mc": 295.8805276,
     "house1": 30
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 94.4996626,
+      "speed": 0.9546366
+     },
+     "moon": {
+      "longitude": 164.4627204,
+      "speed": 12.7275978
+     },
+     "mars": {
+      "longitude": 219.3568199,
+      "speed": 0.1674181
+     },
+     "mercury": {
+      "longitude": 92.4431553,
+      "speed": 2.1347822
+     },
+     "jupiter": {
+      "longitude": 157.3341146,
+      "speed": 0.14616
+     },
+     "venus": {
+      "longitude": 51.6269406,
+      "speed": 1.1009541
+     },
+     "saturn": {
+      "longitude": 14.6837582,
+      "speed": 0.0527614
+     },
+     "trueNode": {
+      "longitude": 329.0597225,
+      "speed": 0.0161555
+     },
+     "meanNode": {
+      "longitude": 330.5618099,
+      "speed": -0.052992
+     }
+    },
+    "tropicalAscendant": 61.6822593,
+    "tropicalMc": 318.1720547,
+    "appliedAyanamsa": 23.4164011
    }
   },
   {
@@ -1219,6 +1563,49 @@
     "ascendant": 59.7365422,
     "mc": 324.1898511,
     "house1": 30
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 352.0645077,
+      "speed": 0.984145
+     },
+     "moon": {
+      "longitude": 241.8427532,
+      "speed": 12.1432619
+     },
+     "mars": {
+      "longitude": 42.432963,
+      "speed": 0.6507176
+     },
+     "mercury": {
+      "longitude": 343.6426953,
+      "speed": -0.7199008
+     },
+     "jupiter": {
+      "longitude": 254.2579809,
+      "speed": 0.0607074
+     },
+     "venus": {
+      "longitude": 37.8122603,
+      "speed": 0.9990438
+     },
+     "saturn": {
+      "longitude": 39.7354982,
+      "speed": 0.1015065
+     },
+     "trueNode": {
+      "longitude": 278.4777802,
+      "speed": -0.0474973
+     },
+     "meanNode": {
+      "longitude": 278.1333038,
+      "speed": -0.052992
+     }
+    },
+    "tropicalAscendant": 82.0768639,
+    "tropicalMc": 346.5301727,
+    "appliedAyanamsa": 23.4542063
    }
   },
   {
@@ -1354,6 +1741,49 @@
     "ascendant": 213.0035366,
     "mc": 104.7922405,
     "house1": 210
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 316.4829372,
+      "speed": 1.0041658
+     },
+     "moon": {
+      "longitude": 291.7874939,
+      "speed": 11.8997844
+     },
+     "mars": {
+      "longitude": 208.0909883,
+      "speed": 0.3305849
+     },
+     "mercury": {
+      "longitude": 309.4830057,
+      "speed": 1.7829873
+     },
+     "jupiter": {
+      "longitude": 254.1503121,
+      "speed": 0.1589493
+     },
+     "venus": {
+      "longitude": 289.0898109,
+      "speed": 1.2337212
+     },
+     "saturn": {
+      "longitude": 202.7468955,
+      "speed": -0.008601
+     },
+     "trueNode": {
+      "longitude": 48.0168742,
+      "speed": -0.2061024
+     },
+     "meanNode": {
+      "longitude": 47.7618002,
+      "speed": -0.052992
+     }
+    },
+    "tropicalAscendant": 235.5048831,
+    "tropicalMc": 127.293587,
+    "appliedAyanamsa": 23.6203119
    }
   },
   {
@@ -1489,6 +1919,49 @@
     "ascendant": 150.38846,
     "mc": 56.2590639,
     "house1": 150
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 256.027522,
+      "speed": 1.0193474
+     },
+     "moon": {
+      "longitude": 193.455909,
+      "speed": 12.1031232
+     },
+     "mars": {
+      "longitude": 303.7462628,
+      "speed": 0.7756461
+     },
+     "mercury": {
+      "longitude": 247.2870057,
+      "speed": 1.5536832
+     },
+     "jupiter": {
+      "longitude": 1.3966971,
+      "speed": 0.0391273
+     },
+     "venus": {
+      "longitude": 217.1318459,
+      "speed": 1.2084836
+     },
+     "saturn": {
+      "longitude": 16.5673512,
+      "speed": -0.0208048
+     },
+     "trueNode": {
+      "longitude": 100.142185,
+      "speed": -0.0475731
+     },
+     "meanNode": {
+      "longitude": 101.2296495,
+      "speed": -0.052992
+     }
+    },
+    "tropicalAscendant": 173.1116385,
+    "tropicalMc": 78.9822423,
+    "appliedAyanamsa": 23.8413437
    }
   },
   {
@@ -1624,6 +2097,49 @@
     "ascendant": 84.4860048,
     "mc": 346.8784269,
     "house1": 60
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 256.5372193,
+      "speed": 1.019394
+     },
+     "moon": {
+      "longitude": 199.4864946,
+      "speed": 12.0212828
+     },
+     "mars": {
+      "longitude": 304.1340979,
+      "speed": 0.7756579
+     },
+     "mercury": {
+      "longitude": 248.064518,
+      "speed": 1.5563002
+     },
+     "jupiter": {
+      "longitude": 1.4166832,
+      "speed": 0.0408147
+     },
+     "venus": {
+      "longitude": 217.736245,
+      "speed": 1.2090549
+     },
+     "saturn": {
+      "longitude": 16.5571757,
+      "speed": -0.0198959
+     },
+     "trueNode": {
+      "longitude": 100.1165288,
+      "speed": -0.0547789
+     },
+     "meanNode": {
+      "longitude": 101.2031529,
+      "speed": -0.052992
+     }
+    },
+    "tropicalAscendant": 107.2092267,
+    "tropicalMc": 9.6016488,
+    "appliedAyanamsa": 23.8413628
    }
   },
   {
@@ -1759,6 +2275,49 @@
     "ascendant": 350.1834774,
     "mc": 258.0219279,
     "house1": 330
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 112.1936749,
+      "speed": 0.9586269
+     },
+     "moon": {
+      "longitude": 196.5467995,
+      "speed": 12.0990719
+     },
+     "mars": {
+      "longitude": 149.0502566,
+      "speed": 0.6267151
+     },
+     "mercury": {
+      "longitude": 122.1144161,
+      "speed": 1.8890219
+     },
+     "jupiter": {
+      "longitude": 260.0304925,
+      "speed": -0.090592
+     },
+     "venus": {
+      "longitude": 128.699998,
+      "speed": 1.2289756
+     },
+     "saturn": {
+      "longitude": 134.6459112,
+      "speed": 0.1198006
+     },
+     "trueNode": {
+      "longitude": 294.5980006,
+      "speed": 0.0009036
+     },
+     "meanNode": {
+      "longitude": 294.7109083,
+      "speed": -0.052992
+     }
+    },
+    "tropicalAscendant": 13.0235389,
+    "tropicalMc": 280.8619894,
+    "appliedAyanamsa": 23.9614148
    }
   },
   {
@@ -1894,6 +2453,49 @@
     "ascendant": 356.707443,
     "mc": 265.6236951,
     "house1": 330
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 256.6842003,
+      "speed": 1.0195239
+     },
+     "moon": {
+      "longitude": 287.7665932,
+      "speed": 12.701783
+     },
+     "mars": {
+      "longitude": 315.4545558,
+      "speed": 0.7553012
+     },
+     "mercury": {
+      "longitude": 249.1949435,
+      "speed": -1.1721062
+     },
+     "jupiter": {
+      "longitude": 177.0721866,
+      "speed": 0.1054684
+     },
+     "venus": {
+      "longitude": 303.4193039,
+      "speed": 1.0847843
+     },
+     "saturn": {
+      "longitude": 237.3005806,
+      "speed": 0.1137871
+     },
+     "trueNode": {
+      "longitude": 130.4664353,
+      "speed": -0.064596
+     },
+     "meanNode": {
+      "longitude": 132.1495112,
+      "speed": -0.052992
+     }
+    },
+    "tropicalAscendant": 19.6704431,
+    "tropicalMc": 288.5866952,
+    "appliedAyanamsa": 24.0786504
    }
   },
   {
@@ -2029,6 +2631,49 @@
     "ascendant": 129.8112968,
     "mc": 39.6947464,
     "house1": 120
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 192.6327214,
+      "speed": 0.9988033
+     },
+     "moon": {
+      "longitude": 34.0447149,
+      "speed": 13.7067108
+     },
+     "mars": {
+      "longitude": 198.3605218,
+      "speed": 0.690522
+     },
+     "mercury": {
+      "longitude": 199.1748053,
+      "speed": 1.5863992
+     },
+     "jupiter": {
+      "longitude": 16.8371802,
+      "speed": -0.1353327
+     },
+     "venus": {
+      "longitude": 146.3563435,
+      "speed": 1.0399032
+     },
+     "saturn": {
+      "longitude": 306.3613385,
+      "speed": -0.0081976
+     },
+     "trueNode": {
+      "longitude": 0.7154538,
+      "speed": -0.0228578
+     },
+     "meanNode": {
+      "longitude": 0.0140634,
+      "speed": -0.052992
+     }
+    },
+    "tropicalAscendant": 152.8639496,
+    "tropicalMc": 62.7473992,
+    "appliedAyanamsa": 24.1739384
    }
   },
   {
@@ -2164,6 +2809,49 @@
     "ascendant": 243.3272572,
     "mc": 158.9432754,
     "house1": 240
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 158.0077351,
+      "speed": 0.979288
+     },
+     "moon": {
+      "longitude": 320.3557272,
+      "speed": 13.0875403
+     },
+     "mars": {
+      "longitude": 94.1065207,
+      "speed": 0.5936767
+     },
+     "mercury": {
+      "longitude": 178.5640005,
+      "speed": 1.4331349
+     },
+     "jupiter": {
+      "longitude": 114.3329262,
+      "speed": 0.1865619
+     },
+     "venus": {
+      "longitude": 193.0869603,
+      "speed": 0.2867413
+     },
+     "saturn": {
+      "longitude": 347.8028704,
+      "speed": -0.0768205
+     },
+     "trueNode": {
+      "longitude": 305.3774972,
+      "speed": -0.0291699
+     },
+     "meanNode": {
+      "longitude": 303.8017462,
+      "speed": -0.052992
+     }
+    },
+    "tropicalAscendant": 266.4221004,
+    "tropicalMc": 182.0381187,
+    "appliedAyanamsa": 24.2144752
    }
   },
   {
@@ -2299,6 +2987,49 @@
     "ascendant": 136.8902079,
     "mc": 51.9830332,
     "house1": 120
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 350.6058999,
+      "speed": 0.9851632
+     },
+     "moon": {
+      "longitude": 255.0966743,
+      "speed": 14.1449862
+     },
+     "mars": {
+      "longitude": 82.3949911,
+      "speed": 0.4205461
+     },
+     "mercury": {
+      "longitude": 327.553395,
+      "speed": 1.5137716
+     },
+     "jupiter": {
+      "longitude": 150.2414237,
+      "speed": -0.115139
+     },
+     "venus": {
+      "longitude": 335.7060161,
+      "speed": 1.2365871
+     },
+     "saturn": {
+      "longitude": 163.7738818,
+      "speed": -0.0772349
+     },
+     "trueNode": {
+      "longitude": 40.5782634,
+      "speed": 0.0086615
+     },
+     "meanNode": {
+      "longitude": 42.0268988,
+      "speed": -0.0529919
+     }
+    },
+    "tropicalAscendant": 160.1730282,
+    "tropicalMc": 75.2658535,
+    "appliedAyanamsa": 24.4032694
    }
   },
   {
@@ -2434,6 +3165,49 @@
     "ascendant": 41.1693896,
     "mc": 314.0877803,
     "house1": 30
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 89.2148359,
+      "speed": 0.953569
+     },
+     "moon": {
+      "longitude": 294.4978353,
+      "speed": 13.8530006
+     },
+     "mars": {
+      "longitude": 65.0597621,
+      "speed": 0.6783736
+     },
+     "mercury": {
+      "longitude": 68.7066266,
+      "speed": 1.1322875
+     },
+     "jupiter": {
+      "longitude": 58.308928,
+      "speed": 0.2144879
+     },
+     "venus": {
+      "longitude": 44.8241651,
+      "speed": 0.7902239
+     },
+     "saturn": {
+      "longitude": 48.1861133,
+      "speed": 0.1084725
+     },
+     "trueNode": {
+      "longitude": 9.8965025,
+      "speed": -0.1716113
+     },
+     "meanNode": {
+      "longitude": 9.4915369,
+      "speed": -0.0529919
+     }
+    },
+    "tropicalAscendant": 64.730154,
+    "tropicalMc": 337.6485446,
+    "appliedAyanamsa": 24.6863832
    }
   },
   {
@@ -2569,6 +3343,49 @@
     "ascendant": 226.6420411,
     "mc": 147.0415456,
     "house1": 210
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 249.1253603,
+      "speed": 1.0183024
+     },
+     "moon": {
+      "longitude": 45.8249059,
+      "speed": 14.3217214
+     },
+     "mars": {
+      "longitude": 318.6568816,
+      "speed": 0.729042
+     },
+     "mercury": {
+      "longitude": 261.4316035,
+      "speed": 1.5796162
+     },
+     "jupiter": {
+      "longitude": 295.9706724,
+      "speed": 0.1999096
+     },
+     "venus": {
+      "longitude": 296.3853405,
+      "speed": 1.0163954
+     },
+     "saturn": {
+      "longitude": 288.1738026,
+      "speed": 0.1018445
+     },
+     "trueNode": {
+      "longitude": 333.5715754,
+      "speed": -0.185458
+     },
+     "meanNode": {
+      "longitude": 333.7810605,
+      "speed": -0.052992
+     }
+    },
+    "tropicalAscendant": 250.5012234,
+    "tropicalMc": 170.9007279,
+    "appliedAyanamsa": 24.9718242
    }
   },
   {
@@ -2704,6 +3521,49 @@
     "ascendant": 170.7273987,
     "mc": 80.7244009,
     "house1": 150
+   },
+   "true_citra_truepos": {
+    "bodies": {
+     "sun": {
+      "longitude": 254.8824961,
+      "speed": 1.0194326
+     },
+     "moon": {
+      "longitude": 265.3818487,
+      "speed": 14.5013808
+     },
+     "mars": {
+      "longitude": 228.5997576,
+      "speed": 0.710999
+     },
+     "mercury": {
+      "longitude": 272.7279687,
+      "speed": 1.4090082
+     },
+     "jupiter": {
+      "longitude": 201.7206312,
+      "speed": 0.1694323
+     },
+     "venus": {
+      "longitude": 240.2879678,
+      "speed": 1.256217
+     },
+     "saturn": {
+      "longitude": 191.6888449,
+      "speed": 0.0747918
+     },
+     "trueNode": {
+      "longitude": 304.7413921,
+      "speed": -0.1012498
+     },
+     "meanNode": {
+      "longitude": 306.369488,
+      "speed": -0.0529919
+     }
+    },
+    "tropicalAscendant": 194.8691862,
+    "tropicalMc": 104.8661884,
+    "appliedAyanamsa": 25.251297
    }
   }
  ],

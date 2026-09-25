@@ -11,8 +11,11 @@ if (!existsSync(EPHE_PATH)) {
 }
 
 export function makeConfig(overrides: Partial<EngineConfig> = {}): EngineConfig {
-  return { ayanamsa: 'lahiri', node: 'true', sunrise: 'center_true', ephePath: EPHE_PATH, port: 0, sourceUrl: null, ...overrides };
+  return { ayanamsa: 'lahiri', node: 'true', sunrise: 'center_true', positions: 'apparent', ephePath: EPHE_PATH, port: 0, sourceUrl: null, ...overrides };
 }
+
+/** Jagannatha Hora's defaults, which production follows (ADR-091). */
+export const JHORA_CONFIG = { ayanamsa: 'true_citra', node: 'mean', sunrise: 'center_true', positions: 'true' } as const;
 
 export function makeEngine(overrides: Partial<EngineConfig> = {}): Engine {
   return new Engine(makeConfig(overrides), { version: '0.0.0-test', commit: null });

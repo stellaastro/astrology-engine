@@ -83,6 +83,19 @@ function positionsAt(utc, place) {
     const find = (label) => numbers(lines.find((l) => l.startsWith(label)))[0];
     out[name] = { bodies, ascendant: find('Ascendant'), mc: find('MC'), house1: find('house  1') };
   }
+  // True positions (SEFLG_TRUEPOS), True Chitra, mean node: Jagannatha Hora's
+  // defaults. The Lagna in that mode is the TROPICAL Ascendant minus the
+  // ayanamsa the planets carry (SEFLG_TRUEPOS|SEFLG_NONUT), so record both.
+  const trueLines = run([...dateArgs(utc), `-p${BODY_ORDER.map(([, p]) => p).join('')}`, '-sid27', '-true', '-fPls']).split('\n').filter((l) => l.includes(','));
+  const trueBodies = {};
+  BODY_ORDER.forEach(([body], i) => {
+    const [longitude, speed] = numbers(trueLines[i]);
+    trueBodies[body] = { longitude, speed };
+  });
+  const tropical = run([...dateArgs(utc), '-p0', '-fPl', `-house${lon},${lat},W`]).split('\n').filter((l) => l.includes(','));
+  const tropicalFind = (label) => numbers(tropical.find((l) => l.startsWith(label)))[0];
+  const ayanamsa = numbers(run([...dateArgs(utc), '-pb', '-sid27', '-true', '-nonut', '-fPl']).split('\n').find((l) => l.startsWith('Ayanamsha')))[0];
+  out.true_citra_truepos = { bodies: trueBodies, tropicalAscendant: tropicalFind('Ascendant'), tropicalMc: tropicalFind('MC'), appliedAyanamsa: ayanamsa };
   return { utc, place, latitude: lat, longitude: lon, ...out };
 }
 

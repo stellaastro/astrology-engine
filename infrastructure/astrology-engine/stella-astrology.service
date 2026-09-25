@@ -20,11 +20,12 @@ Environment=ASTROLOGY_ENGINE_PORT=4003
 # Calculation settings: ONE per process, fixed here, never per request. They
 # follow the Jagannatha Hora settings recorded in ADR-091. Changing one changes
 # results, so it needs a calculationStandardVersion bump in the engine too.
-Environment=ASTROLOGY_AYANAMSA=lahiri
-Environment=ASTROLOGY_NODE=true
+Environment=ASTROLOGY_AYANAMSA=true_citra
+Environment=ASTROLOGY_NODE=mean
 Environment=ASTROLOGY_SUNRISE=center_true
-# Set once the public repository exists (AGPL §13 source link).
-#Environment=ASTROLOGY_ENGINE_SOURCE_URL=https://github.com/stellaastro/astrology-engine
+Environment=ASTROLOGY_POSITIONS=true
+# The published source (AGPL §13). Each build is tagged there as source-<commit7>.
+Environment=ASTROLOGY_ENGINE_SOURCE_URL=https://github.com/stellaastro/astrology-engine
 ExecStart=/bin/false
 Restart=on-failure
 RestartSec=5

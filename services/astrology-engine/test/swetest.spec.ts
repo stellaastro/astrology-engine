@@ -11,12 +11,13 @@ import { elongation, yogaAngle } from '../src/jyotish/panchang';
 import { nakshatraOf } from '../src/jyotish/nakshatra';
 import { rashiOf } from '../src/jyotish/rashi';
 import { periodAround } from '../src/jyotish/crossings';
-import { angularGap, inputAt, makeEngine, MILLIARCSECOND, SECOND_IN_DAYS } from './helpers';
+import { angularGap, inputAt, JHORA_CONFIG, makeEngine, MILLIARCSECOND, SECOND_IN_DAYS } from './helpers';
 import { computeChart } from '../src/chart';
 
 interface BodyFixture { longitude: number; speed: number }
 interface PositionSet { bodies: Record<string, BodyFixture>; ascendant: number; mc: number; house1: number }
-interface PositionFixture extends Record<AyanamsaName, PositionSet> { utc: string; place: string; latitude: number; longitude: number }
+interface TruePositionSet { bodies: Record<string, BodyFixture>; tropicalAscendant: number; tropicalMc: number; appliedAyanamsa: number }
+interface PositionFixture extends Record<AyanamsaName, PositionSet> { utc: string; place: string; latitude: number; longitude: number; true_citra_truepos: TruePositionSet }
 interface RiseFixture extends Record<SunriseKind, { rise: number | null; set: number | null }> { date: string; place: string; latitude: number; longitude: number; body: 'sun' | 'moon'; startJd: number }
 interface BoundaryFixture { label: string; kind: 'moon' | 'elongation' | 'yoga' | 'rahu'; target: number; jd: number; before: number; after: number; sampleSeconds?: number }
 
@@ -58,6 +59,26 @@ describe.each(['lahiri', 'true_citra', 'true_pushya'] as const)('positions under
       }
     });
   }
+});
+
+describe('true positions (SEFLG_TRUEPOS), True Chitra, mean node: the production settings', () => {
+  it('matches swetest -true for every graha, and takes the Lagna as tropical Ascendant minus the applied ayanamsa', () => {
+    const engine = makeEngine(JHORA_CONFIG);
+    for (const f of fixtures.positions) {
+      const chart = computeChart(engine, inputAt(f.utc, f.latitude, f.longitude, 0, 'UTC'));
+      const want = f.true_citra_truepos;
+      for (const planet of chart.planets) {
+        if (planet.id === 'ketu') continue;
+        const w = want.bodies[planet.id === 'rahu' ? 'meanNode' : planet.id]!;
+        expect(angularGap(planet.longitude, w.longitude), `${f.utc} ${planet.id}`).toBeLessThan(MILLIARCSECOND);
+      }
+      expect(Math.abs(chart.meta.config.ayanamsa.appliedDeg - want.appliedAyanamsa), `${f.utc} applied ayanamsa`).toBeLessThan(MILLIARCSECOND);
+      expect(angularGap(chart.ascendant.longitude, want.tropicalAscendant - want.appliedAyanamsa), `${f.utc} Lagna`).toBeLessThan(MILLIARCSECOND);
+      expect(angularGap(chart.midheaven.longitude, want.tropicalMc - want.appliedAyanamsa), `${f.utc} MC`).toBeLessThan(MILLIARCSECOND);
+      expect(chart.houses.house1StartLongitude).toBe((chart.ascendant.signNumber - 1) * 30);
+      expect(chart.meta.ephemeris.flagsReturned).toContain('SEFLG_TRUEPOS');
+    }
+  });
 });
 
 describe.each(['center_true', 'limb_true', 'limb_apparent'] as const)('sunrise and sunset (%s), to 1 s of swetest', (sunrise) => {

@@ -51,6 +51,16 @@ export class Engine {
           sidModeNumber: AYANAMSAS[this.config.ayanamsa].sidMode,
           valueTrueDeg: ayanamsa.trueDeg,
           valueMeanDeg: ayanamsa.meanDeg,
+          // The value actually subtracted from every planet and angle in this response.
+          appliedDeg: this.eph.appliedAyanamsa(jd.ut1),
+          appliedFlags: this.config.positions === 'true' ? ['SEFLG_TRUEPOS', 'SEFLG_NONUT'] : ['SEFLG_NONUT'],
+        },
+        positions: {
+          mode: this.config.positions,
+          flags: this.config.positions === 'true' ? ['SEFLG_TRUEPOS'] : [],
+          angles: this.config.positions === 'true'
+            ? 'tropical swe_houses_ex2 angles minus the applied ayanamsa'
+            : 'swe_houses_ex2 with SEFLG_SIDEREAL',
         },
         node: this.config.node,
         nodeBody: this.config.node === 'true' ? 'SE_TRUE_NODE' : 'SE_MEAN_NODE',

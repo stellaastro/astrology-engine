@@ -9,7 +9,7 @@ import { EphemerisError, OutOfRangeError } from '../src/ephemeris';
 import { InputError, parseInput } from '../src/input';
 import { computePanchang, NoSunriseError } from '../src/panchang-day';
 import { CALCULATION_STANDARD_VERSION } from '../src/standard';
-import { EPHE_PATH, inputAt, makeConfig, makeEngine, SECOND_IN_DAYS } from './helpers';
+import { EPHE_PATH, inputAt, JHORA_CONFIG, makeConfig, makeEngine, SECOND_IN_DAYS } from './helpers';
 
 const VALID = {
   localDate: '1972-04-05', localTime: '10:35:00', latitude: 8.7139, longitude: 77.7567, timezone: 'Asia/Kolkata',
@@ -32,11 +32,12 @@ describe('boot', () => {
   });
 
   it('requires every calculation setting, and refuses an unknown one', () => {
-    const env = { SE_EPHE_PATH: EPHE_PATH, ASTROLOGY_AYANAMSA: 'lahiri', ASTROLOGY_NODE: 'true', ASTROLOGY_SUNRISE: 'center_true' };
-    expect(loadConfig(env)).toMatchObject({ ayanamsa: 'lahiri', node: 'true', sunrise: 'center_true', port: 4003, sourceUrl: null });
+    const env = { SE_EPHE_PATH: EPHE_PATH, ASTROLOGY_AYANAMSA: 'lahiri', ASTROLOGY_NODE: 'true', ASTROLOGY_SUNRISE: 'center_true', ASTROLOGY_POSITIONS: 'true' };
+    expect(loadConfig(env)).toMatchObject({ ayanamsa: 'lahiri', node: 'true', sunrise: 'center_true', positions: 'true', port: 4003, sourceUrl: null });
     for (const key of Object.keys(env)) expect(() => loadConfig({ ...env, [key]: '' })).toThrow(ConfigError);
     expect(() => loadConfig({ ...env, ASTROLOGY_AYANAMSA: 'raman' })).toThrow(/not one of/);
     expect(() => loadConfig({ ...env, ASTROLOGY_SUNRISE: 'hindu' })).toThrow(/not one of/);
+    expect(() => loadConfig({ ...env, ASTROLOGY_POSITIONS: 'topocentric' })).toThrow(/not one of/);
     expect(() => loadConfig({ ...env, ASTROLOGY_ENGINE_PORT: '80' })).toThrow(ConfigError);
     expect(() => loadConfig({ ...env, ASTROLOGY_ENGINE_SOURCE_URL: 'http://insecure' })).toThrow(ConfigError);
   });
@@ -187,10 +188,13 @@ describe(`golden output for ${CALCULATION_STANDARD_VERSION}`, () => {
   it('matches the snapshot recorded for this calculation standard', async () => {
     const engine = makeEngine();
     const strip = <T extends { meta: Record<string, unknown> }>(r: T) => ({ ...r, meta: { ...r.meta, calculatedAt: undefined, engine: undefined } });
+    const production = makeEngine(JHORA_CONFIG);
     const out = {
       chart: strip(computeChart(engine, parseInput(VALID))),
       panchang: strip(computePanchang(engine, inputAt('2026-09-25T06:30:00Z', 13.0827, 80.2707))),
       before1900: strip(computeChart(engine, inputAt('1850-06-15T06:00:00Z', 22.5726, 88.3639))),
+      productionChart: strip(computeChart(production, parseInput(VALID))),
+      productionPanchang: strip(computePanchang(production, inputAt('2026-09-25T06:30:00Z', 13.0827, 80.2707))),
     };
     await expect(`${JSON.stringify(out, null, 1)}\n`).toMatchFileSnapshot(`./__snapshots__/${CALCULATION_STANDARD_VERSION}.json`);
   });

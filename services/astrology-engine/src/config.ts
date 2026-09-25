@@ -21,6 +21,16 @@ export type AyanamsaName = keyof typeof AYANAMSAS;
 export const NODES = ['true', 'mean'] as const;
 export type NodeKind = (typeof NODES)[number];
 
+// Apparent positions (Swiss Ephemeris's default) are corrected for light-time,
+// aberration and gravitational deflection: where a planet is SEEN. True
+// positions (SEFLG_TRUEPOS) are where it IS. Jagannatha Hora defaults to true
+// positions, and in that mode it also takes the Lagna as the tropical
+// Ascendant minus the ayanamsa computed with SEFLG_TRUEPOS|SEFLG_NONUT: the
+// same ayanamsa its sidereal planets carry. Verified against JHora 8.0 to 0.0"
+// on two charts (ADR-091).
+export const POSITIONS = ['apparent', 'true'] as const;
+export type PositionsKind = (typeof POSITIONS)[number];
+
 // Jagannatha Hora's three sunrise definitions, and the Swiss Ephemeris flags
 // that implement each. Constants are from swephexp.h (2.10.03).
 const SE_BIT_DISC_CENTER = 256;
@@ -61,6 +71,7 @@ export interface EngineConfig {
   ayanamsa: AyanamsaName;
   node: NodeKind;
   sunrise: SunriseKind;
+  positions: PositionsKind;
   ephePath: string;
   port: number;
   /** Where the published source of this engine lives (AGPL §13). Optional until the repo exists. */
@@ -90,6 +101,7 @@ export function loadConfig(env: NodeJS.ProcessEnv): EngineConfig {
     ayanamsa: pick(env, 'ASTROLOGY_AYANAMSA', Object.keys(AYANAMSAS) as AyanamsaName[]),
     node: pick(env, 'ASTROLOGY_NODE', NODES),
     sunrise: pick(env, 'ASTROLOGY_SUNRISE', Object.keys(SUNRISES) as SunriseKind[]),
+    positions: pick(env, 'ASTROLOGY_POSITIONS', POSITIONS),
     ephePath,
     port,
     sourceUrl,

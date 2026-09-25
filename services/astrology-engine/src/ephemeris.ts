@@ -17,10 +17,12 @@ import {
   AYANAMSAS, OBSERVER_ELEVATION_M, STANDARD_PRESSURE_HPA, STANDARD_TEMPERATURE_C, SUNRISES,
   type EngineConfig,
 } from './config';
-import { normalize360 } from './jyotish/angles';
+import { MAS_PER_DEGREE, normalize360, toMilliarcseconds } from './jyotish/angles';
+
+const MAS_PER_SIGN = 30 * MAS_PER_DEGREE;
 
 const c = swe.constants;
-const POSITION_FLAGS = c.SEFLG_SWIEPH | c.SEFLG_SPEED | c.SEFLG_SIDEREAL;
+const APPARENT_FLAGS = c.SEFLG_SWIEPH | c.SEFLG_SPEED | c.SEFLG_SIDEREAL;
 
 /** The ephemeris could not do what was asked. A server fault, never the caller's. */
 export class EphemerisError extends Error {}
@@ -79,7 +81,8 @@ function swephPackageVersion(): string {
 
 const FLAG_NAMES: [number, string][] = [
   [c.SEFLG_JPLEPH, 'SEFLG_JPLEPH'], [c.SEFLG_SWIEPH, 'SEFLG_SWIEPH'], [c.SEFLG_MOSEPH, 'SEFLG_MOSEPH'],
-  [c.SEFLG_NONUT, 'SEFLG_NONUT'], [c.SEFLG_SPEED, 'SEFLG_SPEED'], [c.SEFLG_SIDEREAL, 'SEFLG_SIDEREAL'],
+  [c.SEFLG_TRUEPOS, 'SEFLG_TRUEPOS'], [c.SEFLG_NONUT, 'SEFLG_NONUT'], [c.SEFLG_SPEED, 'SEFLG_SPEED'],
+  [c.SEFLG_SIDEREAL, 'SEFLG_SIDEREAL'],
 ];
 
 export function flagNames(flag: number): string[] {
@@ -95,6 +98,8 @@ export class SwissEphemeris {
   private readonly nodeBody: number;
   private readonly riseMethod: number;
   private readonly refraction: boolean;
+  private readonly positionFlags: number;
+  private readonly truePositions: boolean;
 
   constructor(private readonly config: EngineConfig) {
     this.identity = verifyEphemerisFiles(config.ephePath);
@@ -103,6 +108,8 @@ export class SwissEphemeris {
     this.nodeBody = config.node === 'true' ? c.SE_TRUE_NODE : c.SE_MEAN_NODE;
     this.riseMethod = SUNRISES[config.sunrise].rsmi;
     this.refraction = SUNRISES[config.sunrise].refraction;
+    this.truePositions = config.positions === 'true';
+    this.positionFlags = APPARENT_FLAGS | (this.truePositions ? c.SEFLG_TRUEPOS : 0);
     swe.set_sid_mode(this.sidMode, 0, 0);
     this.sweVersion = swe.version();
     this.swephPackage = swephPackageVersion();
@@ -131,22 +138,45 @@ export class SwissEphemeris {
 
   position(jdUt: number, body: Body): Position {
     const ipl = body === 'rahu' ? this.nodeBody : BODY_NUMBERS[body];
-    const result = swe.calc_ut(jdUt, ipl, POSITION_FLAGS);
+    const result = swe.calc_ut(jdUt, ipl, this.positionFlags);
     if (result.flag < 0) throw new EphemerisError(`calc_ut(${body}) failed: ${result.error}`);
     if ((result.flag & c.SEFLG_SWIEPH) === 0) {
       throw new EphemerisError(`calc_ut(${body}) did not use the Swiss Ephemeris files (flags ${flagNames(result.flag).join('|')}): ${result.error}`);
     }
     if ((result.flag & c.SEFLG_SIDEREAL) === 0) throw new EphemerisError(`calc_ut(${body}) did not return a sidereal position`);
+    if (this.truePositions && (result.flag & c.SEFLG_TRUEPOS) === 0) throw new EphemerisError(`calc_ut(${body}) did not return a true position`);
     const [longitude, latitude, , speed] = result.data;
     return { longitude: normalize360(longitude), latitude, speed, flag: result.flag };
   }
 
-  /** Sidereal Ascendant, MC and whole-sign cusps. The Ascendant is NOT house 1's start. */
+  /**
+   * Sidereal Ascendant, MC and the start of whole-sign house 1. The Ascendant
+   * is NOT house 1's start. With apparent positions, Swiss Ephemeris's own
+   * sidereal houses are used. With true positions, the tropical angles minus
+   * the ayanamsa the planets carry (SEFLG_TRUEPOS|SEFLG_NONUT), which is how
+   * Jagannatha Hora computes its Lagna.
+   */
   angles(jdUt: number, latitude: number, longitude: number): { ascendant: number; mc: number; house1Start: number } {
+    if (this.truePositions) {
+      const tropical = swe.houses_ex2(jdUt, 0, latitude, longitude, 'W');
+      if (tropical.flag !== c.OK) throw new EphemerisError(`houses_ex2 failed: ${tropical.error}`);
+      const ayanamsa = this.appliedAyanamsa(jdUt);
+      const [asc, mc] = tropical.data.points;
+      const ascendant = normalize360(asc - ayanamsa);
+      return { ascendant, mc: normalize360(mc - ayanamsa), house1Start: Math.floor(toMilliarcseconds(ascendant) / MAS_PER_SIGN) * 30 };
+    }
     const result = swe.houses_ex2(jdUt, c.SEFLG_SIDEREAL, latitude, longitude, 'W');
     if (result.flag !== c.OK) throw new EphemerisError(`houses_ex2 failed: ${result.error}`);
     const [ascendant, mc] = result.data.points;
     return { ascendant: normalize360(ascendant), mc: normalize360(mc), house1Start: normalize360(result.data.houses[0]) };
+  }
+
+  /** The ayanamsa actually subtracted from the planets: sidereal positions always carry SEFLG_NONUT. */
+  appliedAyanamsa(jdUt: number): number {
+    const flags = c.SEFLG_SWIEPH | c.SEFLG_NONUT | (this.truePositions ? c.SEFLG_TRUEPOS : 0);
+    const result = swe.get_ayanamsa_ex_ut(jdUt, flags);
+    if (result.flag < 0 || (result.flag & c.SEFLG_SWIEPH) === 0) throw new EphemerisError(`get_ayanamsa_ex_ut failed: ${result.error}`);
+    return result.data;
   }
 
   /** The configured ayanamsa, with nutation (true) and without (mean). Positions are consistent with both. */
