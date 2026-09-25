@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { AYANAMSAS, OBSERVER_ELEVATION_M, STANDARD_PRESSURE_HPA, STANDARD_TEMPERATURE_C, SUNRISES, type EngineConfig } from './config';
 import { flagNames, SwissEphemeris } from './ephemeris';
 import { CALCULATION_STANDARD_VERSION } from './standard';
+import { DIVISIONS, VARGA_NAMES, VARGA_RULES } from './jyotish/varga';
 
 const PACKAGE_ROOT = join(__dirname, '..');
 
@@ -68,7 +69,7 @@ export class Engine {
           year: 'true sidereal solar year: the Sun advancing 360° in the sidereal zodiac, with the chart\'s own positions',
           depth: 3,
         },
-        vargas: { navamsa: 'D9: each 3°20′ from 0° Aries steps one sign (Parashari)' },
+        vargas: Object.fromEntries(DIVISIONS.map((n) => [`D${n}`, `${VARGA_NAMES[n]}: ${VARGA_RULES[n]}`])),
         avakhada: {
           from: 'the Moon: sign for varna, vashya and tatva; nakshatra for yoni, gana and nadi; pada for the name syllable',
           varna: 'Muhurta Chintamani: water signs Brahmin, fire Kshatriya, earth Vaishya, air Shudra',
