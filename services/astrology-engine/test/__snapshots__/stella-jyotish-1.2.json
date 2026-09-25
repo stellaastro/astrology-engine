@@ -1,0 +1,1429 @@
+{
+ "chart": {
+  "input": {
+   "localDate": "1972-04-05",
+   "localTime": "10:35:00",
+   "latitude": 8.7139,
+   "longitude": 77.7567,
+   "timezone": "Asia/Kolkata",
+   "resolvedUtcOffset": "+05:30",
+   "offsetSource": "iana",
+   "offsetOverridden": false,
+   "utcInstant": "1972-04-05T05:05:00Z"
+  },
+  "ascendant": {
+   "longitude": 58.603398560932035,
+   "signNumber": 2,
+   "sign": "Taurus",
+   "rashi": "Vrishabha",
+   "signLord": "venus",
+   "degreeInSign": 28.603398560932035,
+   "nakshatra": {
+    "number": 5,
+    "name": "Mrigashira",
+    "pada": 2,
+    "lord": "mars"
+   }
+  },
+  "houses": {
+   "system": "whole_sign",
+   "house1StartLongitude": 30
+  },
+  "midheaven": {
+   "longitude": 323.0567074289428,
+   "signNumber": 11,
+   "sign": "Aquarius",
+   "rashi": "Kumbha",
+   "signLord": "saturn",
+   "degreeInSign": 23.056707428942786
+  },
+  "planets": [
+   {
+    "id": "sun",
+    "longitude": 352.0434170764022,
+    "latitude": -0.000018566765143188593,
+    "speed": 0.9841466139228161,
+    "retrograde": false,
+    "signNumber": 12,
+    "sign": "Pisces",
+    "rashi": "Meena",
+    "signLord": "jupiter",
+    "degreeInSign": 22.043417076402193,
+    "nakshatra": {
+     "number": 27,
+     "name": "Revati",
+     "pada": 2,
+     "lord": "mercury"
+    },
+    "house": 11
+   },
+   {
+    "id": "moon",
+    "longitude": 241.82716276981483,
+    "latitude": -3.015994987726304,
+    "speed": 12.143241150144176,
+    "retrograde": false,
+    "signNumber": 9,
+    "sign": "Sagittarius",
+    "rashi": "Dhanu",
+    "signLord": "jupiter",
+    "degreeInSign": 1.8271627698148336,
+    "nakshatra": {
+     "number": 19,
+     "name": "Mula",
+     "pada": 1,
+     "lord": "ketu"
+    },
+    "house": 8
+   },
+   {
+    "id": "mars",
+    "longitude": 42.40996540012531,
+    "latitude": 1.0367752148785474,
+    "speed": 0.6506910268725122,
+    "retrograde": false,
+    "signNumber": 2,
+    "sign": "Taurus",
+    "rashi": "Vrishabha",
+    "signLord": "venus",
+    "degreeInSign": 12.409965400125309,
+    "nakshatra": {
+     "number": 4,
+     "name": "Rohini",
+     "pada": 1,
+     "lord": "moon"
+    },
+    "house": 1
+   },
+   {
+    "id": "mercury",
+    "longitude": 343.6297421655197,
+    "latitude": 1.8137104510340973,
+    "speed": -0.7200799020593175,
+    "retrograde": true,
+    "signNumber": 12,
+    "sign": "Pisces",
+    "rashi": "Meena",
+    "signLord": "jupiter",
+    "degreeInSign": 13.629742165519701,
+    "nakshatra": {
+     "number": 26,
+     "name": "Uttara Bhadrapada",
+     "pada": 4,
+     "lord": "saturn"
+    },
+    "house": 11
+   },
+   {
+    "id": "jupiter",
+    "longitude": 254.24081176387503,
+    "latitude": 0.3144235966318536,
+    "speed": 0.06079787562258913,
+    "retrograde": false,
+    "signNumber": 9,
+    "sign": "Sagittarius",
+    "rashi": "Dhanu",
+    "signLord": "jupiter",
+    "degreeInSign": 14.24081176387503,
+    "nakshatra": {
+     "number": 20,
+     "name": "Purva Ashadha",
+     "pada": 1,
+     "lord": "venus"
+    },
+    "house": 8
+   },
+   {
+    "id": "venus",
+    "longitude": 37.7926255099874,
+    "latitude": 3.1657839583655623,
+    "speed": 0.9991173703597126,
+    "retrograde": false,
+    "signNumber": 2,
+    "sign": "Taurus",
+    "rashi": "Vrishabha",
+    "signLord": "venus",
+    "degreeInSign": 7.792625509987403,
+    "nakshatra": {
+     "number": 3,
+     "name": "Krittika",
+     "pada": 4,
+     "lord": "sun"
+    },
+    "house": 1
+   },
+   {
+    "id": "saturn",
+    "longitude": 39.71441055783742,
+    "latitude": -1.659945750571614,
+    "speed": 0.10144122351829808,
+    "retrograde": false,
+    "signNumber": 2,
+    "sign": "Taurus",
+    "rashi": "Vrishabha",
+    "signLord": "venus",
+    "degreeInSign": 9.714410557837418,
+    "nakshatra": {
+     "number": 3,
+     "name": "Krittika",
+     "pada": 4,
+     "lord": "sun"
+    },
+    "house": 1
+   },
+   {
+    "id": "rahu",
+    "longitude": 278.4623777098243,
+    "latitude": 0,
+    "speed": -0.04749801098337382,
+    "retrograde": true,
+    "signNumber": 10,
+    "sign": "Capricorn",
+    "rashi": "Makara",
+    "signLord": "saturn",
+    "degreeInSign": 8.462377709824295,
+    "nakshatra": {
+     "number": 21,
+     "name": "Uttara Ashadha",
+     "pada": 4,
+     "lord": "sun"
+    },
+    "house": 9
+   },
+   {
+    "id": "ketu",
+    "longitude": 98.4623777098243,
+    "latitude": 0,
+    "speed": -0.04749801098337382,
+    "retrograde": true,
+    "signNumber": 4,
+    "sign": "Cancer",
+    "rashi": "Karka",
+    "signLord": "moon",
+    "degreeInSign": 8.462377709824295,
+    "nakshatra": {
+     "number": 8,
+     "name": "Pushya",
+     "pada": 2,
+     "lord": "saturn"
+    },
+    "house": 3
+   }
+  ],
+  "panchang": {
+   "tithi": {
+    "number": 21,
+    "name": "Shashthi",
+    "paksha": "krishna"
+   },
+   "karana": {
+    "number": 42,
+    "name": "Vanija",
+    "kind": "movable"
+   },
+   "yoga": {
+    "number": 18,
+    "name": "Variyana"
+   },
+   "vara": {
+    "number": 3,
+    "name": "Budhavara",
+    "english": "Wednesday",
+    "beforeSunrise": false
+   },
+   "sunrise": {
+    "jdUt": 2441412.5333783305,
+    "utc": "1972-04-05T00:48:04Z"
+   },
+   "sunriseStatus": "found"
+  },
+  "meta": {
+   "calculationStandardVersion": "stella-jyotish-1.2",
+   "swissEphemeris": {
+    "version": "2.10.03",
+    "swephPackage": "2.10.3-8"
+   },
+   "ephemeris": {
+    "source": "https://github.com/aloistr/swisseph",
+    "commit": "cae9ecd4b201544d85e411aced17660932514d43",
+    "files": {
+     "sepl_18.se1": "ca1393ceab3a44fbc895887cf789c68819ae6a1cbc9b22225872dbe4ccd99a66",
+     "semo_18.se1": "1ca07bd67c24374d77226180c20a4f9996cba013697894810518e7eb582ca4f7",
+     "seas_18.se1": "a2cd8fc33807c78ca9a700c91c2e042258b12fc4796519e00781440b5ad8b2e2"
+    },
+    "flagsReturned": [
+     "SEFLG_SWIEPH",
+     "SEFLG_NONUT",
+     "SEFLG_SPEED",
+     "SEFLG_SIDEREAL"
+    ]
+   },
+   "config": {
+    "zodiac": "sidereal",
+    "ayanamsa": {
+     "name": "lahiri",
+     "sidMode": "SE_SIDM_LAHIRI",
+     "sidModeNumber": 1,
+     "valueTrueDeg": 23.47346530277149,
+     "valueMeanDeg": 23.46960957957691,
+     "appliedDeg": 23.46960957957691,
+     "appliedFlags": [
+      "SEFLG_NONUT"
+     ]
+    },
+    "positions": {
+     "mode": "apparent",
+     "flags": [],
+     "angles": "swe_houses_ex2 with SEFLG_SIDEREAL"
+    },
+    "node": "true",
+    "nodeBody": "SE_TRUE_NODE",
+    "houseSystem": "whole_sign",
+    "houseSystemCode": "W",
+    "sunrise": {
+     "definition": "center_true",
+     "method": "SE_BIT_HINDU_RISING",
+     "implies": [
+      "SE_BIT_DISC_CENTER",
+      "SE_BIT_NO_REFRACTION",
+      "SE_BIT_GEOCTR_NO_ECL_LAT"
+     ],
+     "rsmi": 896,
+     "moon": {
+      "method": "SE_BIT_DISC_CENTER|SE_BIT_NO_REFRACTION",
+      "rsmi": 768
+     },
+     "observerElevationM": 0,
+     "pressureHpa": null,
+     "temperatureC": null
+    }
+   },
+   "julianDayUt": 2441412.711801634,
+   "julianDayTt": 2441412.7122937962
+  }
+ },
+ "panchang": {
+  "input": {
+   "localDate": "2026-09-25",
+   "localTime": "12:00:00",
+   "latitude": 13.0827,
+   "longitude": 80.2707,
+   "timezone": "Asia/Kolkata",
+   "resolvedUtcOffset": "+05:30",
+   "offsetSource": "iana",
+   "offsetOverridden": false,
+   "utcInstant": "2026-09-25T06:30:00Z"
+  },
+  "day": {
+   "vara": {
+    "number": 5,
+    "name": "Shukravara",
+    "english": "Friday"
+   },
+   "sunrise": {
+    "jdUt": 2461308.5218657954,
+    "utc": "2026-09-25T00:31:29Z"
+   },
+   "sunset": {
+    "jdUt": 2461309.020605839,
+    "utc": "2026-09-25T12:29:40Z"
+   },
+   "nextSunrise": {
+    "jdUt": 2461309.5218762113,
+    "utc": "2026-09-26T00:31:30Z"
+   },
+   "moonrise": {
+    "jdUt": 2461308.986110435,
+    "utc": "2026-09-25T11:40:00Z"
+   },
+   "moonset": {
+    "jdUt": 2461308.4583859122,
+    "utc": "2026-09-24T23:00:04Z"
+   }
+  },
+  "tithis": [
+   {
+    "number": 14,
+    "name": "Chaturdashi",
+    "paksha": "shukla",
+    "start": {
+     "jdUt": 2461308.2423171503,
+     "utc": "2026-09-24T17:48:56Z"
+    },
+    "end": {
+     "jdUt": 2461309.2342528803,
+     "utc": "2026-09-25T17:37:19Z"
+    }
+   },
+   {
+    "number": 15,
+    "name": "Purnima",
+    "paksha": "shukla",
+    "start": {
+     "jdUt": 2461309.2342528803,
+     "utc": "2026-09-25T17:37:19Z"
+    },
+    "end": {
+     "jdUt": 2461310.2007293208,
+     "utc": "2026-09-26T16:49:03Z"
+    }
+   }
+  ],
+  "nakshatras": [
+   {
+    "number": 24,
+    "name": "Shatabhisha",
+    "lord": "rahu",
+    "start": {
+     "jdUt": 2461307.7120742304,
+     "utc": "2026-09-24T05:05:23Z"
+    },
+    "end": {
+     "jdUt": 2461308.7448958857,
+     "utc": "2026-09-25T05:52:39Z"
+    }
+   },
+   {
+    "number": 25,
+    "name": "Purva Bhadrapada",
+    "lord": "jupiter",
+    "start": {
+     "jdUt": 2461308.7448958857,
+     "utc": "2026-09-25T05:52:39Z"
+    },
+    "end": {
+     "jdUt": 2461309.7516021235,
+     "utc": "2026-09-26T06:02:18Z"
+    }
+   }
+  ],
+  "yogas": [
+   {
+    "number": 9,
+    "name": "Shula",
+    "start": {
+     "jdUt": 2461307.933814953,
+     "utc": "2026-09-24T10:24:41Z"
+    },
+    "end": {
+     "jdUt": 2461308.8897170527,
+     "utc": "2026-09-25T09:21:11Z"
+    }
+   },
+   {
+    "number": 10,
+    "name": "Ganda",
+    "start": {
+     "jdUt": 2461308.8897170527,
+     "utc": "2026-09-25T09:21:11Z"
+    },
+    "end": {
+     "jdUt": 2461309.8247527583,
+     "utc": "2026-09-26T07:47:38Z"
+    }
+   }
+  ],
+  "karanas": [
+   {
+    "number": 27,
+    "name": "Garaja",
+    "kind": "movable",
+    "start": {
+     "jdUt": 2461308.2423171503,
+     "utc": "2026-09-24T17:48:56Z"
+    },
+    "end": {
+     "jdUt": 2461308.7416381342,
+     "utc": "2026-09-25T05:47:57Z"
+    }
+   },
+   {
+    "number": 28,
+    "name": "Vanija",
+    "kind": "movable",
+    "start": {
+     "jdUt": 2461308.7416381342,
+     "utc": "2026-09-25T05:47:57Z"
+    },
+    "end": {
+     "jdUt": 2461309.2342528803,
+     "utc": "2026-09-25T17:37:19Z"
+    }
+   },
+   {
+    "number": 29,
+    "name": "Vishti",
+    "kind": "movable",
+    "start": {
+     "jdUt": 2461309.2342528803,
+     "utc": "2026-09-25T17:37:19Z"
+    },
+    "end": {
+     "jdUt": 2461309.720481823,
+     "utc": "2026-09-26T05:17:29Z"
+    }
+   }
+  ],
+  "atReferenceTime": {
+   "tithi": {
+    "number": 14,
+    "name": "Chaturdashi",
+    "paksha": "shukla"
+   },
+   "nakshatra": {
+    "number": 25,
+    "name": "Purva Bhadrapada",
+    "pada": 1,
+    "lord": "jupiter"
+   },
+   "yoga": {
+    "number": 9,
+    "name": "Shula"
+   },
+   "karana": {
+    "number": 28,
+    "name": "Vanija",
+    "kind": "movable"
+   },
+   "vara": {
+    "number": 5,
+    "name": "Shukravara",
+    "english": "Friday",
+    "beforeSunrise": false
+   }
+  },
+  "meta": {
+   "calculationStandardVersion": "stella-jyotish-1.2",
+   "swissEphemeris": {
+    "version": "2.10.03",
+    "swephPackage": "2.10.3-8"
+   },
+   "ephemeris": {
+    "source": "https://github.com/aloistr/swisseph",
+    "commit": "cae9ecd4b201544d85e411aced17660932514d43",
+    "files": {
+     "sepl_18.se1": "ca1393ceab3a44fbc895887cf789c68819ae6a1cbc9b22225872dbe4ccd99a66",
+     "semo_18.se1": "1ca07bd67c24374d77226180c20a4f9996cba013697894810518e7eb582ca4f7",
+     "seas_18.se1": "a2cd8fc33807c78ca9a700c91c2e042258b12fc4796519e00781440b5ad8b2e2"
+    },
+    "flagsReturned": [
+     "SEFLG_SWIEPH",
+     "SEFLG_NONUT",
+     "SEFLG_SPEED",
+     "SEFLG_SIDEREAL"
+    ]
+   },
+   "config": {
+    "zodiac": "sidereal",
+    "ayanamsa": {
+     "name": "lahiri",
+     "sidMode": "SE_SIDM_LAHIRI",
+     "sidModeNumber": 1,
+     "valueTrueDeg": 24.232948553533728,
+     "valueMeanDeg": 24.230526859850443,
+     "appliedDeg": 24.230526859850443,
+     "appliedFlags": [
+      "SEFLG_NONUT"
+     ]
+    },
+    "positions": {
+     "mode": "apparent",
+     "flags": [],
+     "angles": "swe_houses_ex2 with SEFLG_SIDEREAL"
+    },
+    "node": "true",
+    "nodeBody": "SE_TRUE_NODE",
+    "houseSystem": "whole_sign",
+    "houseSystemCode": "W",
+    "sunrise": {
+     "definition": "center_true",
+     "method": "SE_BIT_HINDU_RISING",
+     "implies": [
+      "SE_BIT_DISC_CENTER",
+      "SE_BIT_NO_REFRACTION",
+      "SE_BIT_GEOCTR_NO_ECL_LAT"
+     ],
+     "rsmi": 896,
+     "moon": {
+      "method": "SE_BIT_DISC_CENTER|SE_BIT_NO_REFRACTION",
+      "rsmi": 768
+     },
+     "observerElevationM": 0,
+     "pressureHpa": null,
+     "temperatureC": null
+    }
+   },
+   "julianDayUt": 2461308.770837545,
+   "julianDayTt": 2461308.7716340744
+  }
+ },
+ "before1900": {
+  "input": {
+   "localDate": "1850-06-15",
+   "localTime": "11:30:00",
+   "latitude": 22.5726,
+   "longitude": 88.3639,
+   "timezone": "Asia/Kolkata",
+   "resolvedUtcOffset": "+05:30",
+   "offsetSource": "iana",
+   "offsetOverridden": false,
+   "utcInstant": "1850-06-15T06:00:00Z"
+  },
+  "ascendant": {
+   "longitude": 150.4182302075916,
+   "signNumber": 6,
+   "sign": "Virgo",
+   "rashi": "Kanya",
+   "signLord": "mercury",
+   "degreeInSign": 0.41823020759159135,
+   "nakshatra": {
+    "number": 12,
+    "name": "Uttara Phalguni",
+    "pada": 2,
+    "lord": "sun"
+   }
+  },
+  "houses": {
+   "system": "whole_sign",
+   "house1StartLongitude": 150
+  },
+  "midheaven": {
+   "longitude": 60.456663123089164,
+   "signNumber": 3,
+   "sign": "Gemini",
+   "rashi": "Mithuna",
+   "signLord": "mercury",
+   "degreeInSign": 0.45666312308916446
+  },
+  "planets": [
+   {
+    "id": "sun",
+    "longitude": 61.95437852235191,
+    "latitude": 0.000040045715229026165,
+    "speed": 0.9547555934614731,
+    "retrograde": false,
+    "signNumber": 3,
+    "sign": "Gemini",
+    "rashi": "Mithuna",
+    "signLord": "mercury",
+    "degreeInSign": 1.9543785223519095,
+    "nakshatra": {
+     "number": 5,
+     "name": "Mrigashira",
+     "pada": 3,
+     "lord": "mars"
+    },
+    "house": 10
+   },
+   {
+    "id": "moon",
+    "longitude": 130.13610477449697,
+    "latitude": 1.410868407976322,
+    "speed": 14.196084175709544,
+    "retrograde": false,
+    "signNumber": 5,
+    "sign": "Leo",
+    "rashi": "Simha",
+    "signLord": "sun",
+    "degreeInSign": 10.136104774496971,
+    "nakshatra": {
+     "number": 10,
+     "name": "Magha",
+     "pada": 4,
+     "lord": "ketu"
+    },
+    "house": 12
+   },
+   {
+    "id": "mars",
+    "longitude": 115.85794172804606,
+    "latitude": 1.31825250895963,
+    "speed": 0.5843979059023163,
+    "retrograde": false,
+    "signNumber": 4,
+    "sign": "Cancer",
+    "rashi": "Karka",
+    "signLord": "moon",
+    "degreeInSign": 25.857941728046058,
+    "nakshatra": {
+     "number": 9,
+     "name": "Ashlesha",
+     "pada": 3,
+     "lord": "mercury"
+    },
+    "house": 11
+   },
+   {
+    "id": "mercury",
+    "longitude": 54.61523437070779,
+    "latitude": -4.106764946247195,
+    "speed": -0.44095000578759785,
+    "retrograde": true,
+    "signNumber": 2,
+    "sign": "Taurus",
+    "rashi": "Vrishabha",
+    "signLord": "venus",
+    "degreeInSign": 24.61523437070779,
+    "nakshatra": {
+     "number": 5,
+     "name": "Mrigashira",
+     "pada": 1,
+     "lord": "mars"
+    },
+    "house": 9
+   },
+   {
+    "id": "jupiter",
+    "longitude": 143.2144712644675,
+    "latitude": 1.2629334435227015,
+    "speed": 0.09986405789170419,
+    "retrograde": false,
+    "signNumber": 5,
+    "sign": "Leo",
+    "rashi": "Simha",
+    "signLord": "sun",
+    "degreeInSign": 23.214471264467505,
+    "nakshatra": {
+     "number": 11,
+     "name": "Purva Phalguni",
+     "pada": 3,
+     "lord": "venus"
+    },
+    "house": 12
+   },
+   {
+    "id": "venus",
+    "longitude": 88.58261588644771,
+    "latitude": 1.6048043918396944,
+    "speed": 1.2083996412026006,
+    "retrograde": false,
+    "signNumber": 3,
+    "sign": "Gemini",
+    "rashi": "Mithuna",
+    "signLord": "mercury",
+    "degreeInSign": 28.582615886447712,
+    "nakshatra": {
+     "number": 7,
+     "name": "Punarvasu",
+     "pada": 3,
+     "lord": "jupiter"
+    },
+    "house": 10
+   },
+   {
+    "id": "saturn",
+    "longitude": 357.29781667632983,
+    "latitude": -2.3655162405645718,
+    "speed": 0.07604617749426155,
+    "retrograde": false,
+    "signNumber": 12,
+    "sign": "Pisces",
+    "rashi": "Meena",
+    "signLord": "jupiter",
+    "degreeInSign": 27.29781667632983,
+    "nakshatra": {
+     "number": 27,
+     "name": "Revati",
+     "pada": 4,
+     "lord": "mercury"
+    },
+    "house": 7
+   },
+   {
+    "id": "rahu",
+    "longitude": 114.23343557729542,
+    "latitude": 0,
+    "speed": 0.015742123666769935,
+    "retrograde": false,
+    "signNumber": 4,
+    "sign": "Cancer",
+    "rashi": "Karka",
+    "signLord": "moon",
+    "degreeInSign": 24.233435577295424,
+    "nakshatra": {
+     "number": 9,
+     "name": "Ashlesha",
+     "pada": 3,
+     "lord": "mercury"
+    },
+    "house": 11
+   },
+   {
+    "id": "ketu",
+    "longitude": 294.23343557729544,
+    "latitude": 0,
+    "speed": 0.015742123666769935,
+    "retrograde": false,
+    "signNumber": 10,
+    "sign": "Capricorn",
+    "rashi": "Makara",
+    "signLord": "saturn",
+    "degreeInSign": 24.233435577295438,
+    "nakshatra": {
+     "number": 23,
+     "name": "Dhanishta",
+     "pada": 1,
+     "lord": "mars"
+    },
+    "house": 5
+   }
+  ],
+  "panchang": {
+   "tithi": {
+    "number": 6,
+    "name": "Shashthi",
+    "paksha": "shukla"
+   },
+   "karana": {
+    "number": 12,
+    "name": "Taitila",
+    "kind": "movable"
+   },
+   "yoga": {
+    "number": 15,
+    "name": "Vajra"
+   },
+   "vara": {
+    "number": 6,
+    "name": "Shanivara",
+    "english": "Saturday",
+    "beforeSunrise": false
+   },
+   "sunrise": {
+    "jdUt": 2396923.4758415176,
+    "utc": "1850-06-14T23:25:13Z"
+   },
+   "sunriseStatus": "found"
+  },
+  "meta": {
+   "calculationStandardVersion": "stella-jyotish-1.2",
+   "swissEphemeris": {
+    "version": "2.10.03",
+    "swephPackage": "2.10.3-8"
+   },
+   "ephemeris": {
+    "source": "https://github.com/aloistr/swisseph",
+    "commit": "cae9ecd4b201544d85e411aced17660932514d43",
+    "files": {
+     "sepl_18.se1": "ca1393ceab3a44fbc895887cf789c68819ae6a1cbc9b22225872dbe4ccd99a66",
+     "semo_18.se1": "1ca07bd67c24374d77226180c20a4f9996cba013697894810518e7eb582ca4f7",
+     "seas_18.se1": "a2cd8fc33807c78ca9a700c91c2e042258b12fc4796519e00781440b5ad8b2e2"
+    },
+    "flagsReturned": [
+     "SEFLG_SWIEPH",
+     "SEFLG_NONUT",
+     "SEFLG_SPEED",
+     "SEFLG_SIDEREAL"
+    ]
+   },
+   "config": {
+    "zodiac": "sidereal",
+    "ayanamsa": {
+     "name": "lahiri",
+     "sidMode": "SE_SIDM_LAHIRI",
+     "sidModeNumber": 1,
+     "valueTrueDeg": 21.76552465077866,
+     "valueMeanDeg": 21.768805353602083,
+     "appliedDeg": 21.768805353602083,
+     "appliedFlags": [
+      "SEFLG_NONUT"
+     ]
+    },
+    "positions": {
+     "mode": "apparent",
+     "flags": [],
+     "angles": "swe_houses_ex2 with SEFLG_SIDEREAL"
+    },
+    "node": "true",
+    "nodeBody": "SE_TRUE_NODE",
+    "houseSystem": "whole_sign",
+    "houseSystemCode": "W",
+    "sunrise": {
+     "definition": "center_true",
+     "method": "SE_BIT_HINDU_RISING",
+     "implies": [
+      "SE_BIT_DISC_CENTER",
+      "SE_BIT_NO_REFRACTION",
+      "SE_BIT_GEOCTR_NO_ECL_LAT"
+     ],
+     "rsmi": 896,
+     "moon": {
+      "method": "SE_BIT_DISC_CENTER|SE_BIT_NO_REFRACTION",
+      "rsmi": 768
+     },
+     "observerElevationM": 0,
+     "pressureHpa": null,
+     "temperatureC": null
+    }
+   },
+   "julianDayUt": 2396923.75,
+   "julianDayTt": 2396923.750109021
+  }
+ },
+ "productionChart": {
+  "input": {
+   "localDate": "1972-04-05",
+   "localTime": "10:35:00",
+   "latitude": 8.7139,
+   "longitude": 77.7567,
+   "timezone": "Asia/Kolkata",
+   "resolvedUtcOffset": "+05:30",
+   "offsetSource": "iana",
+   "offsetOverridden": false,
+   "utcInstant": "1972-04-05T05:05:00Z"
+  },
+  "ascendant": {
+   "longitude": 58.62265753115176,
+   "signNumber": 2,
+   "sign": "Taurus",
+   "rashi": "Vrishabha",
+   "signLord": "venus",
+   "degreeInSign": 28.62265753115176,
+   "nakshatra": {
+    "number": 5,
+    "name": "Mrigashira",
+    "pada": 2,
+    "lord": "mars"
+   }
+  },
+  "houses": {
+   "system": "whole_sign",
+   "house1StartLongitude": 30
+  },
+  "midheaven": {
+   "longitude": 323.07596639916255,
+   "signNumber": 11,
+   "sign": "Aquarius",
+   "rashi": "Kumbha",
+   "signLord": "saturn",
+   "degreeInSign": 23.075966399162553
+  },
+  "planets": [
+   {
+    "id": "sun",
+    "longitude": 352.06450772595537,
+    "latitude": -0.00001840358117820353,
+    "speed": 0.9841450403942191,
+    "retrograde": false,
+    "signNumber": 12,
+    "sign": "Pisces",
+    "rashi": "Meena",
+    "signLord": "jupiter",
+    "degreeInSign": 22.064507725955366,
+    "nakshatra": {
+     "number": 27,
+     "name": "Revati",
+     "pada": 2,
+     "lord": "mercury"
+    },
+    "house": 11
+   },
+   {
+    "id": "moon",
+    "longitude": 241.84275319047327,
+    "latitude": -3.0159817557630135,
+    "speed": 12.143261931049278,
+    "retrograde": false,
+    "signNumber": 9,
+    "sign": "Sagittarius",
+    "rashi": "Dhanu",
+    "signLord": "jupiter",
+    "degreeInSign": 1.8427531904732746,
+    "nakshatra": {
+     "number": 19,
+     "name": "Mula",
+     "pada": 1,
+     "lord": "ketu"
+    },
+    "house": 8
+   },
+   {
+    "id": "mars",
+    "longitude": 42.43296304781691,
+    "latitude": 1.0368363285382365,
+    "speed": 0.6507176035582944,
+    "retrograde": false,
+    "signNumber": 2,
+    "sign": "Taurus",
+    "rashi": "Vrishabha",
+    "signLord": "venus",
+    "degreeInSign": 12.432963047816912,
+    "nakshatra": {
+     "number": 4,
+     "name": "Rohini",
+     "pada": 1,
+     "lord": "moon"
+    },
+    "house": 1
+   },
+   {
+    "id": "mercury",
+    "longitude": 343.6426952604622,
+    "latitude": 1.8128321642311442,
+    "speed": -0.7199008338936355,
+    "retrograde": true,
+    "signNumber": 12,
+    "sign": "Pisces",
+    "rashi": "Meena",
+    "signLord": "jupiter",
+    "degreeInSign": 13.642695260462176,
+    "nakshatra": {
+     "number": 26,
+     "name": "Uttara Bhadrapada",
+     "pada": 4,
+     "lord": "saturn"
+    },
+    "house": 11
+   },
+   {
+    "id": "jupiter",
+    "longitude": 254.25798091050413,
+    "latitude": 0.3143975730368703,
+    "speed": 0.06070743905710795,
+    "retrograde": false,
+    "signNumber": 9,
+    "sign": "Sagittarius",
+    "rashi": "Dhanu",
+    "signLord": "jupiter",
+    "degreeInSign": 14.25798091050413,
+    "nakshatra": {
+     "number": 20,
+     "name": "Purva Ashadha",
+     "pada": 1,
+     "lord": "venus"
+    },
+    "house": 8
+   },
+   {
+    "id": "venus",
+    "longitude": 37.812260309444405,
+    "latitude": 3.1660498249676436,
+    "speed": 0.9990438253375384,
+    "retrograde": false,
+    "signNumber": 2,
+    "sign": "Taurus",
+    "rashi": "Vrishabha",
+    "signLord": "venus",
+    "degreeInSign": 7.8122603094444045,
+    "nakshatra": {
+     "number": 3,
+     "name": "Krittika",
+     "pada": 4,
+     "lord": "sun"
+    },
+    "house": 1
+   },
+   {
+    "id": "saturn",
+    "longitude": 39.735498155580366,
+    "latitude": -1.659767448575828,
+    "speed": 0.10150648880507857,
+    "retrograde": false,
+    "signNumber": 2,
+    "sign": "Taurus",
+    "rashi": "Vrishabha",
+    "signLord": "venus",
+    "degreeInSign": 9.735498155580366,
+    "nakshatra": {
+     "number": 3,
+     "name": "Krittika",
+     "pada": 4,
+     "lord": "sun"
+    },
+    "house": 1
+   },
+   {
+    "id": "rahu",
+    "longitude": 278.13330377671434,
+    "latitude": 2.4175470700678966e-15,
+    "speed": -0.05299195378499579,
+    "retrograde": true,
+    "signNumber": 10,
+    "sign": "Capricorn",
+    "rashi": "Makara",
+    "signLord": "saturn",
+    "degreeInSign": 8.133303776714342,
+    "nakshatra": {
+     "number": 21,
+     "name": "Uttara Ashadha",
+     "pada": 4,
+     "lord": "sun"
+    },
+    "house": 9
+   },
+   {
+    "id": "ketu",
+    "longitude": 98.13330377671434,
+    "latitude": -2.4175470700678966e-15,
+    "speed": -0.05299195378499579,
+    "retrograde": true,
+    "signNumber": 4,
+    "sign": "Cancer",
+    "rashi": "Karka",
+    "signLord": "moon",
+    "degreeInSign": 8.133303776714342,
+    "nakshatra": {
+     "number": 8,
+     "name": "Pushya",
+     "pada": 2,
+     "lord": "saturn"
+    },
+    "house": 3
+   }
+  ],
+  "panchang": {
+   "tithi": {
+    "number": 21,
+    "name": "Shashthi",
+    "paksha": "krishna"
+   },
+   "karana": {
+    "number": 42,
+    "name": "Vanija",
+    "kind": "movable"
+   },
+   "yoga": {
+    "number": 18,
+    "name": "Variyana"
+   },
+   "vara": {
+    "number": 3,
+    "name": "Budhavara",
+    "english": "Wednesday",
+    "beforeSunrise": false
+   },
+   "sunrise": {
+    "jdUt": 2441412.5333783305,
+    "utc": "1972-04-05T00:48:04Z"
+   },
+   "sunriseStatus": "found"
+  },
+  "meta": {
+   "calculationStandardVersion": "stella-jyotish-1.2",
+   "swissEphemeris": {
+    "version": "2.10.03",
+    "swephPackage": "2.10.3-8"
+   },
+   "ephemeris": {
+    "source": "https://github.com/aloistr/swisseph",
+    "commit": "cae9ecd4b201544d85e411aced17660932514d43",
+    "files": {
+     "sepl_18.se1": "ca1393ceab3a44fbc895887cf789c68819ae6a1cbc9b22225872dbe4ccd99a66",
+     "semo_18.se1": "1ca07bd67c24374d77226180c20a4f9996cba013697894810518e7eb582ca4f7",
+     "seas_18.se1": "a2cd8fc33807c78ca9a700c91c2e042258b12fc4796519e00781440b5ad8b2e2"
+    },
+    "flagsReturned": [
+     "SEFLG_SWIEPH",
+     "SEFLG_TRUEPOS",
+     "SEFLG_NONUT",
+     "SEFLG_SPEED",
+     "SEFLG_SIDEREAL"
+    ]
+   },
+   "config": {
+    "zodiac": "sidereal",
+    "ayanamsa": {
+     "name": "true_citra",
+     "sidMode": "SE_SIDM_TRUE_CITRA",
+     "sidModeNumber": 27,
+     "valueTrueDeg": 23.46368436149034,
+     "valueMeanDeg": 23.45982863829576,
+     "appliedDeg": 23.454206332551763,
+     "appliedFlags": [
+      "SEFLG_TRUEPOS",
+      "SEFLG_NONUT"
+     ]
+    },
+    "positions": {
+     "mode": "true",
+     "flags": [
+      "SEFLG_TRUEPOS"
+     ],
+     "angles": "tropical swe_houses_ex2 angles minus the applied ayanamsa"
+    },
+    "node": "mean",
+    "nodeBody": "SE_MEAN_NODE",
+    "houseSystem": "whole_sign",
+    "houseSystemCode": "W",
+    "sunrise": {
+     "definition": "center_true",
+     "method": "SE_BIT_HINDU_RISING",
+     "implies": [
+      "SE_BIT_DISC_CENTER",
+      "SE_BIT_NO_REFRACTION",
+      "SE_BIT_GEOCTR_NO_ECL_LAT"
+     ],
+     "rsmi": 896,
+     "moon": {
+      "method": "SE_BIT_DISC_CENTER|SE_BIT_NO_REFRACTION",
+      "rsmi": 768
+     },
+     "observerElevationM": 0,
+     "pressureHpa": null,
+     "temperatureC": null
+    }
+   },
+   "julianDayUt": 2441412.711801634,
+   "julianDayTt": 2441412.7122937962
+  }
+ },
+ "productionPanchang": {
+  "input": {
+   "localDate": "2026-09-25",
+   "localTime": "12:00:00",
+   "latitude": 13.0827,
+   "longitude": 80.2707,
+   "timezone": "Asia/Kolkata",
+   "resolvedUtcOffset": "+05:30",
+   "offsetSource": "iana",
+   "offsetOverridden": false,
+   "utcInstant": "2026-09-25T06:30:00Z"
+  },
+  "day": {
+   "vara": {
+    "number": 5,
+    "name": "Shukravara",
+    "english": "Friday"
+   },
+   "sunrise": {
+    "jdUt": 2461308.5218657954,
+    "utc": "2026-09-25T00:31:29Z"
+   },
+   "sunset": {
+    "jdUt": 2461309.020605839,
+    "utc": "2026-09-25T12:29:40Z"
+   },
+   "nextSunrise": {
+    "jdUt": 2461309.5218762113,
+    "utc": "2026-09-26T00:31:30Z"
+   },
+   "moonrise": {
+    "jdUt": 2461308.986110435,
+    "utc": "2026-09-25T11:40:00Z"
+   },
+   "moonset": {
+    "jdUt": 2461308.4583859122,
+    "utc": "2026-09-24T23:00:04Z"
+   }
+  },
+  "tithis": [
+   {
+    "number": 14,
+    "name": "Chaturdashi",
+    "paksha": "shukla",
+    "start": {
+     "jdUt": 2461308.242774914,
+     "utc": "2026-09-24T17:49:35Z"
+    },
+    "end": {
+     "jdUt": 2461309.2347030146,
+     "utc": "2026-09-25T17:37:58Z"
+    }
+   },
+   {
+    "number": 15,
+    "name": "Purnima",
+    "paksha": "shukla",
+    "start": {
+     "jdUt": 2461309.2347030146,
+     "utc": "2026-09-25T17:37:58Z"
+    },
+    "end": {
+     "jdUt": 2461310.2011641962,
+     "utc": "2026-09-26T16:49:40Z"
+    }
+   }
+  ],
+  "nakshatras": [
+   {
+    "number": 24,
+    "name": "Shatabhisha",
+    "lord": "rahu",
+    "start": {
+     "jdUt": 2461307.710792492,
+     "utc": "2026-09-24T05:03:32Z"
+    },
+    "end": {
+     "jdUt": 2461308.7436522944,
+     "utc": "2026-09-25T05:50:51Z"
+    }
+   },
+   {
+    "number": 25,
+    "name": "Purva Bhadrapada",
+    "lord": "jupiter",
+    "start": {
+     "jdUt": 2461308.7436522944,
+     "utc": "2026-09-25T05:50:51Z"
+    },
+    "end": {
+     "jdUt": 2461309.7503890498,
+     "utc": "2026-09-26T06:00:33Z"
+    }
+   }
+  ],
+  "yogas": [
+   {
+    "number": 9,
+    "name": "Shula",
+    "start": {
+     "jdUt": 2461307.931068371,
+     "utc": "2026-09-24T10:20:44Z"
+    },
+    "end": {
+     "jdUt": 2461308.8870238764,
+     "utc": "2026-09-25T09:17:18Z"
+    }
+   },
+   {
+    "number": 10,
+    "name": "Ganda",
+    "start": {
+     "jdUt": 2461308.8870238764,
+     "utc": "2026-09-25T09:17:18Z"
+    },
+    "end": {
+     "jdUt": 2461309.822120617,
+     "utc": "2026-09-26T07:43:51Z"
+    }
+   }
+  ],
+  "karanas": [
+   {
+    "number": 27,
+    "name": "Garaja",
+    "kind": "movable",
+    "start": {
+     "jdUt": 2461308.242774914,
+     "utc": "2026-09-24T17:49:35Z"
+    },
+    "end": {
+     "jdUt": 2461308.7420882685,
+     "utc": "2026-09-25T05:48:36Z"
+    }
+   },
+   {
+    "number": 28,
+    "name": "Vanija",
+    "kind": "movable",
+    "start": {
+     "jdUt": 2461308.7420882685,
+     "utc": "2026-09-25T05:48:36Z"
+    },
+    "end": {
+     "jdUt": 2461309.2347030146,
+     "utc": "2026-09-25T17:37:58Z"
+    }
+   },
+   {
+    "number": 29,
+    "name": "Vishti",
+    "kind": "movable",
+    "start": {
+     "jdUt": 2461309.2347030146,
+     "utc": "2026-09-25T17:37:58Z"
+    },
+    "end": {
+     "jdUt": 2461309.720924328,
+     "utc": "2026-09-26T05:18:07Z"
+    }
+   }
+  ],
+  "atReferenceTime": {
+   "tithi": {
+    "number": 14,
+    "name": "Chaturdashi",
+    "paksha": "shukla"
+   },
+   "nakshatra": {
+    "number": 25,
+    "name": "Purva Bhadrapada",
+    "pada": 1,
+    "lord": "jupiter"
+   },
+   "yoga": {
+    "number": 9,
+    "name": "Shula"
+   },
+   "karana": {
+    "number": 28,
+    "name": "Vanija",
+    "kind": "movable"
+   },
+   "vara": {
+    "number": 5,
+    "name": "Shukravara",
+    "english": "Friday",
+    "beforeSunrise": false
+   }
+  },
+  "meta": {
+   "calculationStandardVersion": "stella-jyotish-1.2",
+   "swissEphemeris": {
+    "version": "2.10.03",
+    "swephPackage": "2.10.3-8"
+   },
+   "ephemeris": {
+    "source": "https://github.com/aloistr/swisseph",
+    "commit": "cae9ecd4b201544d85e411aced17660932514d43",
+    "files": {
+     "sepl_18.se1": "ca1393ceab3a44fbc895887cf789c68819ae6a1cbc9b22225872dbe4ccd99a66",
+     "semo_18.se1": "1ca07bd67c24374d77226180c20a4f9996cba013697894810518e7eb582ca4f7",
+     "seas_18.se1": "a2cd8fc33807c78ca9a700c91c2e042258b12fc4796519e00781440b5ad8b2e2"
+    },
+    "flagsReturned": [
+     "SEFLG_SWIEPH",
+     "SEFLG_TRUEPOS",
+     "SEFLG_NONUT",
+     "SEFLG_SPEED",
+     "SEFLG_SIDEREAL"
+    ]
+   },
+   "config": {
+    "zodiac": "sidereal",
+    "ayanamsa": {
+     "name": "true_citra",
+     "sidMode": "SE_SIDM_TRUE_CITRA",
+     "sidModeNumber": 27,
+     "valueTrueDeg": 24.211604436832314,
+     "valueMeanDeg": 24.20918274314903,
+     "appliedDeg": 24.214475180718694,
+     "appliedFlags": [
+      "SEFLG_TRUEPOS",
+      "SEFLG_NONUT"
+     ]
+    },
+    "positions": {
+     "mode": "true",
+     "flags": [
+      "SEFLG_TRUEPOS"
+     ],
+     "angles": "tropical swe_houses_ex2 angles minus the applied ayanamsa"
+    },
+    "node": "mean",
+    "nodeBody": "SE_MEAN_NODE",
+    "houseSystem": "whole_sign",
+    "houseSystemCode": "W",
+    "sunrise": {
+     "definition": "center_true",
+     "method": "SE_BIT_HINDU_RISING",
+     "implies": [
+      "SE_BIT_DISC_CENTER",
+      "SE_BIT_NO_REFRACTION",
+      "SE_BIT_GEOCTR_NO_ECL_LAT"
+     ],
+     "rsmi": 896,
+     "moon": {
+      "method": "SE_BIT_DISC_CENTER|SE_BIT_NO_REFRACTION",
+      "rsmi": 768
+     },
+     "observerElevationM": 0,
+     "pressureHpa": null,
+     "temperatureC": null
+    }
+   },
+   "julianDayUt": 2461308.770837545,
+   "julianDayTt": 2461308.7716340744
+  }
+ }
+}

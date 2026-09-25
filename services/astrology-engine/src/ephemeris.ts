@@ -97,6 +97,7 @@ export class SwissEphemeris {
   private readonly sidMode: number;
   private readonly nodeBody: number;
   private readonly riseMethod: number;
+  private readonly moonRiseMethod: number;
   private readonly refraction: boolean;
   private readonly positionFlags: number;
   private readonly truePositions: boolean;
@@ -107,6 +108,7 @@ export class SwissEphemeris {
     this.sidMode = AYANAMSAS[config.ayanamsa].sidMode;
     this.nodeBody = config.node === 'true' ? c.SE_TRUE_NODE : c.SE_MEAN_NODE;
     this.riseMethod = SUNRISES[config.sunrise].rsmi;
+    this.moonRiseMethod = SUNRISES[config.sunrise].moonRsmi;
     this.refraction = SUNRISES[config.sunrise].refraction;
     this.truePositions = config.positions === 'true';
     this.positionFlags = APPARENT_FLAGS | (this.truePositions ? c.SEFLG_TRUEPOS : 0);
@@ -197,7 +199,7 @@ export class SwissEphemeris {
   riseSet(jdStart: number, body: 'sun' | 'moon', event: 'rise' | 'set', latitude: number, longitude: number): number | null {
     const which = event === 'rise' ? c.SE_CALC_RISE : c.SE_CALC_SET;
     const result = swe.rise_trans(
-      jdStart, body === 'sun' ? c.SE_SUN : c.SE_MOON, null, c.SEFLG_SWIEPH, which | this.riseMethod,
+      jdStart, body === 'sun' ? c.SE_SUN : c.SE_MOON, null, c.SEFLG_SWIEPH, which | (body === 'sun' ? this.riseMethod : this.moonRiseMethod),
       [longitude, latitude, OBSERVER_ELEVATION_M],
       this.refraction ? STANDARD_PRESSURE_HPA : 0, this.refraction ? STANDARD_TEMPERATURE_C : 0,
     );

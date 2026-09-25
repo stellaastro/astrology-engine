@@ -97,6 +97,7 @@ describe('chart', () => {
     expect(meta('center_true')).toEqual({
       definition: 'center_true', method: 'SE_BIT_HINDU_RISING',
       implies: ['SE_BIT_DISC_CENTER', 'SE_BIT_NO_REFRACTION', 'SE_BIT_GEOCTR_NO_ECL_LAT'], rsmi: 896,
+      moon: { method: 'SE_BIT_DISC_CENTER|SE_BIT_NO_REFRACTION', rsmi: 768 },
       observerElevationM: 0, pressureHpa: null, temperatureC: null,
     });
     expect(meta('limb_true')).toMatchObject({ method: 'SE_BIT_NO_REFRACTION', rsmi: 512, pressureHpa: null });

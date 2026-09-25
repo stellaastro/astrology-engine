@@ -42,6 +42,11 @@ export const SUNRISES = {
     rsmi: SE_BIT_DISC_CENTER | SE_BIT_NO_REFRACTION | SE_BIT_GEOCTR_NO_ECL_LAT,
     method: 'SE_BIT_HINDU_RISING',
     implies: ['SE_BIT_DISC_CENTER', 'SE_BIT_NO_REFRACTION', 'SE_BIT_GEOCTR_NO_ECL_LAT'],
+    // The Moon's centre on the true horizon, WITH its ecliptic latitude (up
+    // to ~5°): ignoring it moves moonrise by up to 18 minutes. Owner decision,
+    // 2026-09-25 (ADR-091). The Sun's latitude is ~0, so the rule is the same.
+    moonRsmi: SE_BIT_DISC_CENTER | SE_BIT_NO_REFRACTION,
+    moonMethod: 'SE_BIT_DISC_CENTER|SE_BIT_NO_REFRACTION',
     refraction: false,
   },
   // "true rise of tip": the upper limb on the geometric horizon.
@@ -49,6 +54,8 @@ export const SUNRISES = {
     rsmi: SE_BIT_NO_REFRACTION,
     method: 'SE_BIT_NO_REFRACTION',
     implies: ['SE_BIT_NO_REFRACTION'],
+    moonRsmi: SE_BIT_NO_REFRACTION,
+    moonMethod: 'SE_BIT_NO_REFRACTION',
     refraction: false,
   },
   // "apparent rise of tip": the upper limb as seen through the atmosphere.
@@ -56,6 +63,8 @@ export const SUNRISES = {
     rsmi: 0,
     method: 'upper limb with refraction (no rsmi bits)',
     implies: [],
+    moonRsmi: 0,
+    moonMethod: 'upper limb with refraction (no rsmi bits)',
     refraction: true,
   },
 } as const;

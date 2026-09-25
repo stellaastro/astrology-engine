@@ -11,4 +11,7 @@
 // 1.1  2026-09-25  'true' positions mode (SEFLG_TRUEPOS) with its Lagna rule,
 //                  so the engine can follow Jagannatha Hora's default settings
 //                  (ADR-091). Production: true_citra, mean nodes, true positions.
-export const CALCULATION_STANDARD_VERSION = 'stella-jyotish-1.1';
+// 1.2  2026-09-25  Moonrise and moonset: the Moon's centre on the true horizon
+//                  WITH its latitude (SE_BIT_DISC_CENTER|SE_BIT_NO_REFRACTION),
+//                  not SE_BIT_HINDU_RISING, which ignores it (ADR-091).
+export const CALCULATION_STANDARD_VERSION = 'stella-jyotish-1.2';

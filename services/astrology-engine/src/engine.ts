@@ -71,6 +71,7 @@ export class Engine {
           method: sunrise.method,
           implies: [...sunrise.implies],
           rsmi: sunrise.rsmi,
+          moon: { method: sunrise.moonMethod, rsmi: sunrise.moonRsmi },
           observerElevationM: OBSERVER_ELEVATION_M,
           pressureHpa: sunrise.refraction ? STANDARD_PRESSURE_HPA : null,
           temperatureC: sunrise.refraction ? STANDARD_TEMPERATURE_C : null,

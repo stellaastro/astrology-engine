@@ -3,7 +3,7 @@
   "program": "swetest",
   "swissEphemeris": "2.10.03",
   "ephemerisCommit": "cae9ecd4b201544d85e411aced17660932514d43",
-  "generatedAt": "2026-09-25T16:35:37.967Z"
+  "generatedAt": "2026-09-25T16:44:31.234Z"
  },
  "positions": [
   {
@@ -3937,7 +3937,7 @@
    "startJd": 2461308.2770258333,
    "center_true": {
     "rise": null,
-    "set": 2461308.4616550924
+    "set": 2461308.458385417
    },
    "limb_true": {
     "rise": null,
@@ -3946,6 +3946,66 @@
    "limb_apparent": {
     "rise": null,
     "set": 2461308.460815972
+   }
+  },
+  {
+   "date": "2000-01-01",
+   "place": "delhi",
+   "latitude": 28.6139,
+   "longitude": 77.209,
+   "body": "moon",
+   "startJd": 2451544.2855305555,
+   "center_true": {
+    "rise": 2451544.371858796,
+    "set": 2451544.8512094906
+   },
+   "limb_true": {
+    "rise": 2451544.3710300927,
+    "set": 2451544.85203125
+   },
+   "limb_apparent": {
+    "rise": 2451544.3691655095,
+    "set": 2451544.853885417
+   }
+  },
+  {
+   "date": "1984-02-29",
+   "place": "mumbai",
+   "latitude": 19.076,
+   "longitude": 72.8777,
+   "body": "moon",
+   "startJd": 2445759.2975619445,
+   "center_true": {
+    "rise": 2445759.503667824,
+    "set": 2445759.969658565
+   },
+   "limb_true": {
+    "rise": 2445759.5028541666,
+    "set": 2445759.970466435
+   },
+   "limb_apparent": {
+    "rise": 2445759.5010069446,
+    "set": 2445759.9723055554
+   }
+  },
+  {
+   "date": "2026-10-10",
+   "place": "mumbai",
+   "latitude": 19.076,
+   "longitude": 72.8777,
+   "body": "moon",
+   "startJd": 2461323.2975619445,
+   "center_true": {
+    "rise": 2461323.5244375,
+    "set": 2461324.0180127313
+   },
+   "limb_true": {
+    "rise": 2461323.5236435183,
+    "set": 2461324.018800926
+   },
+   "limb_apparent": {
+    "rise": 2461323.521922454,
+    "set": 2461324.020515046
    }
   }
  ],

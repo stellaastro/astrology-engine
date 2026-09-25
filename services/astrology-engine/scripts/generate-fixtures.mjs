@@ -114,7 +114,9 @@ function risesAt(date, place, body = 'sun') {
   // Local mean midnight, so the first event found is the morning rise.
   const startJd = julianDay(y, m, d, 0) - lon / 360;
   const out = { date, place, latitude: lat, longitude: lon, body, startJd };
-  for (const [definition, extra] of Object.entries(RISE_ARGS)) {
+  for (const [definition, sunArgs] of Object.entries(RISE_ARGS)) {
+    // The Moon keeps its latitude under center_true: disc centre, no refraction (ADR-091).
+    const extra = body === 'moon' && definition === 'center_true' ? ['-disccenter', '-norefrac'] : sunArgs;
     const line = run([`-bj${startJd}`, '-ut', '-rise', `-p${body === 'sun' ? 0 : 1}`, `-geopos${lon},${lat},0`, '-n1', ...extra])
       .split('\n').find((l) => l.startsWith('rise')) ?? '';
     const [risePart, setPart] = line.split(/\bset\b/);
@@ -196,6 +198,9 @@ const fixtures = {
     risesAt('2026-06-21', 'tromso'),
     risesAt('2026-12-21', 'tromso'),
     risesAt('2026-09-25', 'chennai', 'moon'),
+    risesAt('2000-01-01', 'delhi', 'moon'),
+    risesAt('1984-02-29', 'mumbai', 'moon'),
+    risesAt('2026-10-10', 'mumbai', 'moon'),
   ],
   boundaries,
 };
