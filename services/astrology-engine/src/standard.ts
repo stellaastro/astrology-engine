@@ -14,4 +14,6 @@
 // 1.2  2026-09-25  Moonrise and moonset: the Moon's centre on the true horizon
 //                  WITH its latitude (SE_BIT_DISC_CENTER|SE_BIT_NO_REFRACTION),
 //                  not SE_BIT_HINDU_RISING, which ignores it (ADR-091).
-export const CALCULATION_STANDARD_VERSION = 'stella-jyotish-1.2';
+// 1.3  2026-09-26  Navamsa (D9), and Vimshottari dasha from the Moon to three
+//                  levels in true sidereal solar years (ADR-091).
+export const CALCULATION_STANDARD_VERSION = 'stella-jyotish-1.3';

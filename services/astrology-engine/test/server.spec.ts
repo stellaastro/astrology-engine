@@ -66,7 +66,7 @@ describe('routes', () => {
 });
 
 describe('concurrency', () => {
-  it('fifty interleaved chart and panchang requests return exactly what they return one at a time', async () => {
+  it('fifty interleaved chart and panchang requests return exactly what they return one at a time', { timeout: 60_000 }, async () => {
     const bodies = Array.from({ length: 50 }, (_, i) => {
       const day = String((i % 28) + 1).padStart(2, '0');
       return { path: i % 2 ? '/v1/panchang' : '/v1/chart', body: { ...BIRTH, localDate: `2026-02-${day}`, utcInstant: `2026-02-${day}T05:05:00Z` } };

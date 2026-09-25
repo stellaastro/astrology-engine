@@ -62,6 +62,13 @@ export class Engine {
             ? 'tropical swe_houses_ex2 angles minus the applied ayanamsa'
             : 'swe_houses_ex2 with SEFLG_SIDEREAL',
         },
+        dasha: {
+          system: 'vimshottari',
+          startedFrom: 'moon',
+          year: 'true sidereal solar year: the Sun advancing 360° in the sidereal zodiac, with the chart\'s own positions',
+          depth: 3,
+        },
+        vargas: { navamsa: 'D9: each 3°20′ from 0° Aries steps one sign (Parashari)' },
         node: this.config.node,
         nodeBody: this.config.node === 'true' ? 'SE_TRUE_NODE' : 'SE_MEAN_NODE',
         houseSystem: 'whole_sign' as const,

@@ -5,6 +5,8 @@ import { normalize360 } from './jyotish/angles';
 import { nakshatraOf } from './jyotish/nakshatra';
 import { elongation, karanaOf, tithiOf, varaOf, weekdayOf, yogaAngle, yogaOf } from './jyotish/panchang';
 import { rashiOf, wholeSignHouse, type Graha } from './jyotish/rashi';
+import { navamsaSignNumber } from './jyotish/varga';
+import { solarYearClock, vimshottari, type DashaPeriod } from './jyotish/dasha';
 
 const GRAHAS: Graha[] = ['sun', 'moon', 'mars', 'mercury', 'jupiter', 'venus', 'saturn', 'rahu', 'ketu'];
 
@@ -51,6 +53,14 @@ export function computeChart(engine: Engine, input: ParsedInput) {
   const elong = elongation(sun, moon);
   const { sunriseJd } = sunriseOnLocalDate(engine, input);
 
+  const signOf = (n: number) => { const { signNumber, sign, rashi, signLord } = rashiOf((n - 1) * 30 + 15); return { signNumber, sign, rashi, signLord }; };
+  const dasha = vimshottari(moon, 3, solarYearClock((t) => engine.eph.position(t, 'sun'), jd.ut1));
+  const period = (p: DashaPeriod): Record<string, unknown> => ({
+    // Plain UTC strings: 819 periods with Julian days attached would double the response.
+    lord: p.lord, level: p.level, start: engine.eph.utcIso(p.startJd), end: engine.eph.utcIso(p.endJd),
+    ...(p.periods ? { periods: p.periods.map(period) } : {}),
+  });
+
   return {
     input: echo(input),
     ascendant: { longitude: angles.ascendant, ...lagna, nakshatra: nakshatraOf(angles.ascendant) },
@@ -69,6 +79,17 @@ export function computeChart(engine: Engine, input: ParsedInput) {
         house: wholeSignHouse(p.longitude, angles.ascendant),
       };
     }),
+    navamsa: {
+      ascendant: signOf(navamsaSignNumber(angles.ascendant)),
+      planets: GRAHAS.map((id) => ({ id, ...signOf(navamsaSignNumber(positions.get(id)!.longitude)) })),
+    },
+    dasha: {
+      system: 'vimshottari' as const,
+      startedFrom: 'moon' as const,
+      firstLord: dasha.firstLord,
+      balanceYears: dasha.balanceYears,
+      periods: dasha.periods.map(period),
+    },
     panchang: {
       tithi: tithiOf(elong),
       karana: karanaOf(elong),
