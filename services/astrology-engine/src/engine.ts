@@ -69,6 +69,12 @@ export class Engine {
           depth: 3,
         },
         vargas: { navamsa: 'D9: each 3°20′ from 0° Aries steps one sign (Parashari)' },
+        avakhada: {
+          from: 'the Moon: sign for varna, vashya and tatva; nakshatra for yoni, gana and nadi; pada for the name syllable',
+          varna: 'Muhurta Chintamani: water signs Brahmin, fire Kshatriya, earth Vaishya, air Shudra',
+          vashya: 'Sagittarius Manava then Chatushpada, Capricorn Chatushpada then Jalachara, split at 15°',
+          syllables: 'Hoda Chakra of 27 nakshatras (Shravana खी खू खे खो)',
+        },
         node: this.config.node,
         nodeBody: this.config.node === 'true' ? 'SE_TRUE_NODE' : 'SE_MEAN_NODE',
         houseSystem: 'whole_sign' as const,

@@ -6,6 +6,7 @@ import { nakshatraOf } from './jyotish/nakshatra';
 import { elongation, karanaOf, tithiOf, varaOf, weekdayOf, yogaAngle, yogaOf } from './jyotish/panchang';
 import { rashiOf, wholeSignHouse, type Graha } from './jyotish/rashi';
 import { navamsaSignNumber } from './jyotish/varga';
+import { avakhadaOf } from './jyotish/avakhada';
 import { solarYearClock, vimshottari, type DashaPeriod } from './jyotish/dasha';
 
 const GRAHAS: Graha[] = ['sun', 'moon', 'mars', 'mercury', 'jupiter', 'venus', 'saturn', 'rahu', 'ketu'];
@@ -83,6 +84,8 @@ export function computeChart(engine: Engine, input: ParsedInput) {
       ascendant: signOf(navamsaSignNumber(angles.ascendant)),
       planets: GRAHAS.map((id) => ({ id, ...signOf(navamsaSignNumber(positions.get(id)!.longitude)) })),
     },
+    // Standard birth details, all read from the Moon (ADR-091, Stage 2b).
+    avakhada: avakhadaOf(moon),
     dasha: {
       system: 'vimshottari' as const,
       startedFrom: 'moon' as const,
