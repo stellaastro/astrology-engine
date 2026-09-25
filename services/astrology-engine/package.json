@@ -1,0 +1,31 @@
+{
+  "name": "@stella/astrology-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Stella's astronomical calculation engine: Swiss Ephemeris positions, houses, sunrise and Panchang, served on localhost only.",
+  "license": "AGPL-3.0-only",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/main.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --config vitest.config.mjs",
+    "swetest": "scripts/build-swetest.sh .swetest",
+    "fixtures": "node scripts/generate-fixtures.mjs .swetest/swetest ${SE_EPHE_PATH:-/home/stellaastro/ephe}"
+  },
+  "dependencies": {
+    "sweph": "2.10.3-8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stellaastro/astrology-engine.git"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  }
+}

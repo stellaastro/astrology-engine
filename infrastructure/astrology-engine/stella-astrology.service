@@ -1,0 +1,44 @@
+# Stella's astrology engine: Swiss Ephemeris positions, houses, sunrise and
+# Panchang, on 127.0.0.1:4003 only (ADR-091). No database, no secrets, no
+# EnvironmentFile. One instance serves both stella-api and stella-api-dev.
+#
+# Install: copy to /etc/systemd/system/, then point ExecStart at a release in
+# /etc/systemd/system/stella-astrology.service.d/release.conf — the ONLY drop-in
+# that may set ExecStart. See docs/runbooks/ASTROLOGY_ENGINE.md.
+[Unit]
+Description=Stella astrology engine (Swiss Ephemeris, localhost only)
+After=network.target
+
+[Service]
+Type=simple
+User=stellaastro
+Group=stellaastro
+WorkingDirectory=/home/stellaastro/htdocs/www.stellaastro.com
+# The pinned, checksummed .se1 files (infrastructure/astrology-engine/fetch-ephe.sh).
+Environment=SE_EPHE_PATH=/home/stellaastro/ephe
+Environment=ASTROLOGY_ENGINE_PORT=4003
+# Calculation settings: ONE per process, fixed here, never per request. They
+# follow the Jagannatha Hora settings recorded in ADR-091. Changing one changes
+# results, so it needs a calculationStandardVersion bump in the engine too.
+Environment=ASTROLOGY_AYANAMSA=lahiri
+Environment=ASTROLOGY_NODE=true
+Environment=ASTROLOGY_SUNRISE=center_true
+# Set once the public repository exists (AGPL §13 source link).
+#Environment=ASTROLOGY_ENGINE_SOURCE_URL=https://github.com/stellaastro/astrology-engine
+ExecStart=/bin/false
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=read-only
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictAddressFamilies=AF_INET AF_UNIX
+MemoryMax=256M
+
+[Install]
+WantedBy=multi-user.target

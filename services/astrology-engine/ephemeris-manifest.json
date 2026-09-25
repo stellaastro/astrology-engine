@@ -1,0 +1,10 @@
+{
+  "source": "https://github.com/aloistr/swisseph",
+  "commit": "cae9ecd4b201544d85e411aced17660932514d43",
+  "note": "Swiss Ephemeris data files rebuilt from JPL DE441 (commit of 2026-05-29). Covers 1800-2400 CE. The engine refuses to start unless every file here is present with exactly this checksum.",
+  "files": {
+    "sepl_18.se1": "ca1393ceab3a44fbc895887cf789c68819ae6a1cbc9b22225872dbe4ccd99a66",
+    "semo_18.se1": "1ca07bd67c24374d77226180c20a4f9996cba013697894810518e7eb582ca4f7",
+    "seas_18.se1": "a2cd8fc33807c78ca9a700c91c2e042258b12fc4796519e00781440b5ad8b2e2"
+  }
+}

@@ -1,0 +1,4 @@
+.swetest/
+dist/
+node_modules/
+build-info.json
