@@ -26,4 +26,7 @@
 // 1.7  2026-09-26  Kundli Matching: Ashtakoota (Guna Milan, 36 points) from the
 //                  two Moons, through the birth-detail tables; traditional
 //                  exceptions named beside the score, never applied (ADR-091).
-export const CALCULATION_STANDARD_VERSION = 'stella-jyotish-1.7';
+// 1.8  2026-09-26  The day's periods in the Panchang: Rahu Kaal, Yamaganda,
+//                  Gulika Kaal, Dur Muhurtam, Abhijit and Brahma Muhurta, as
+//                  shares of the engine's own daytime and night (ADR-091).
+export const CALCULATION_STANDARD_VERSION = 'stella-jyotish-1.8';

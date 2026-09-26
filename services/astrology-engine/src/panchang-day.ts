@@ -3,6 +3,7 @@ import type { Engine } from './engine';
 import { echo, type ParsedInput } from './input';
 import { MAS_PER_DEGREE } from './jyotish/angles';
 import { periodsBetween, type AngleAt, type Period } from './jyotish/crossings';
+import { dayPeriods } from './jyotish/day-periods';
 import { MAS_PER_NAKSHATRA, nakshatraOf } from './jyotish/nakshatra';
 import { elongation, karanaOf, KARANA_DEGREES, TITHI_DEGREES, tithiOf, varaOf, weekdayOf, yogaAngle, yogaOf } from './jyotish/panchang';
 
@@ -32,6 +33,11 @@ export function computePanchang(engine: Engine, input: ParsedInput) {
   const onThisDate = (value: number | null) => (value !== null && value < midnightJd + 1 ? value : null);
   const moonriseJd = onThisDate(eph.riseSet(midnightJd, 'moon', 'rise', latitude, longitude));
   const moonsetJd = onThisDate(eph.riseSet(midnightJd, 'moon', 'set', latitude, longitude));
+  // The sunset before this sunrise (searched from a day earlier): the night
+  // whose last muhurtas hold Brahma Muhurta.
+  const previousSunsetJd = eph.riseSet(sunriseJd - 1, 'sun', 'set', latitude, longitude);
+  const { year, month, day } = input.local;
+  const weekday = weekdayOf(year, month, day);
 
   const sunMoon = (t: number) => [eph.position(t, 'sun').longitude, eph.position(t, 'moon').longitude] as const;
   const elongationAt: AngleAt = (t) => elongation(...sunMoon(t));
@@ -51,12 +57,14 @@ export function computePanchang(engine: Engine, input: ParsedInput) {
   const karanas = periodsBetween(elongationAt, sunriseJd, nextSunriseJd, MAS_PER_KARANA)
     .map((p) => ({ ...karanaOf((p.index + 0.5) * KARANA_DEGREES), ...span(p) }));
 
+  const periods = dayPeriods({ weekday, sunriseJd, sunsetJd, nextSunriseJd, previousSunsetJd })
+    .map(({ startJd, endJd, ...period }) => ({ ...period, start: engine.moment(startJd), end: engine.moment(endJd) }));
+
   const [sun, moon] = sunMoon(jd.ut1);
-  const { year, month, day } = input.local;
   return {
     input: echo(input),
     day: {
-      vara: varaOf(weekdayOf(year, month, day)),
+      vara: varaOf(weekday),
       sunrise: engine.moment(sunriseJd),
       sunset: sunsetJd === null ? null : engine.moment(sunsetJd),
       nextSunrise: engine.moment(nextSunriseJd),
@@ -67,6 +75,7 @@ export function computePanchang(engine: Engine, input: ParsedInput) {
     nakshatras,
     yogas,
     karanas,
+    periods,
     atReferenceTime: {
       tithi: tithiOf(elongation(sun, moon)),
       nakshatra: nakshatraOf(moon),
