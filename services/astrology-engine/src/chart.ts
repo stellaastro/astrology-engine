@@ -1,4 +1,4 @@
-import { EphemerisError, type Body, type Position } from './ephemeris';
+import { EPHEMERIS_JD, EphemerisError, type Body, type Position } from './ephemeris';
 import type { Engine } from './engine';
 import { echo, type ParsedInput } from './input';
 import { normalize360 } from './jyotish/angles';
@@ -57,10 +57,13 @@ export function computeChart(engine: Engine, input: ParsedInput) {
   const { sunriseJd } = sunriseOnLocalDate(engine, input);
 
   const signOf = (n: number) => { const { signNumber, sign, rashi, signLord } = rashiOf((n - 1) * 30 + 15); return { signNumber, sign, rashi, signLord }; };
-  const dasha = vimshottari(moon, 3, solarYearClock((t) => engine.eph.position(t, 'sun'), jd.ut1));
+  const dasha = vimshottari(moon, 3, solarYearClock((t) => engine.eph.position(t, 'sun'), jd.ut1, EPHEMERIS_JD));
   const period = (p: DashaPeriod): Record<string, unknown> => ({
     // Plain UTC strings: 819 periods with Julian days attached would double the response.
-    lord: p.lord, level: p.level, start: engine.eph.utcIso(p.startJd), end: engine.eph.utcIso(p.endJd),
+    // null: before 1800 or after 2400, beyond the ephemeris; the page says so.
+    lord: p.lord, level: p.level,
+    start: p.startJd === null ? null : engine.eph.utcIso(p.startJd),
+    end: p.endJd === null ? null : engine.eph.utcIso(p.endJd),
     ...(p.periods ? { periods: p.periods.map(period) } : {}),
   });
 

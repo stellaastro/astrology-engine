@@ -72,3 +72,29 @@ describe('true sidereal solar years on the real ephemeris', () => {
     }
   });
 });
+
+describe('a dasha that runs past the ephemeris', () => {
+  // The dasha reaches from the first mahadasha's start (up to 20 years before
+  // birth) to 120 years after it. Near 1801 or 2398 part of that is outside the
+  // pinned files; those dates are unknown, and the chart must still calculate.
+  const engine = makeEngine(JHORA_CONFIG);
+  const flat = (periods: { start: string | null; end: string | null; periods?: unknown[] }[]): { start: string | null; end: string | null }[] =>
+    periods.flatMap((p) => [p, ...(p.periods ? flat(p.periods as never) : [])]);
+
+  it.each([['1801-06-01T06:30:00Z', 'start'], ['2398-12-31T06:30:00Z', 'end']])('%s: calculates, with the %s of the dasha unknown', (utc, missing) => {
+    const chart = computeChart(engine, inputAt(utc, 28.6139, 77.209));
+    const all = flat(chart.dasha.periods as never);
+    const nulls = all.filter((p) => (missing === 'start' ? p.start === null : p.end === null));
+    expect(nulls.length).toBeGreaterThan(0);
+    for (const p of all) for (const iso of [p.start, p.end]) if (iso !== null) expect(Number.isNaN(Date.parse(iso))).toBe(false);
+    // Known dates never go beyond the files.
+    const known = all.flatMap((p) => [p.start, p.end]).filter((x): x is string => x !== null).map(Date.parse);
+    expect(Math.min(...known)).toBeGreaterThanOrEqual(Date.parse('1800-01-01T00:00:00Z'));
+    expect(Math.max(...known)).toBeLessThanOrEqual(Date.parse('2400-01-01T00:00:00Z'));
+  });
+
+  it('an ordinary birth has every date', () => {
+    const chart = computeChart(engine, inputAt('2000-01-01T06:30:00Z', 28.6139, 77.209));
+    expect(flat(chart.dasha.periods as never).every((p) => p.start !== null && p.end !== null)).toBe(true);
+  });
+});

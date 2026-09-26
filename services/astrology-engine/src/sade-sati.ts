@@ -1,4 +1,5 @@
 import type { Engine } from './engine';
+import { EPHEMERIS_JD } from './ephemeris';
 import { normalizeSigned180, toMilliarcseconds } from './jyotish/angles';
 
 // Sade Sati: Saturn in the 12th, 1st and 2nd signs from the natal Moon's sign,
@@ -77,16 +78,15 @@ type Phase = 'rising' | 'peak' | 'setting';
 const PHASE: Record<number, Phase> = { 11: 'rising', 0: 'peak', 1: 'setting' };
 const DHAIYA: Record<number, 'fourth' | 'eighth'> = { 3: 'fourth', 7: 'eighth' };
 
+/** How far past birth the periods are listed. */
+export const SADE_SATI_YEARS = 100;
+const LIMITS = { firstJd: EPHEMERIS_JD.first, lastJd: EPHEMERIS_JD.last };
+
 /**
  * Sade Sati cycles and Dhaiya spans that overlap [birthJd, birthJd + years].
  * The search runs 8 years either side, so a cycle already running at birth,
  * or still running at the end, is reported whole.
  */
-/** How far past birth the periods are listed. */
-export const SADE_SATI_YEARS = 100;
-// The pinned ephemeris files cover 1800–2400; the search stays a day inside.
-const LIMITS = { firstJd: 2_378_497.5, lastJd: 2_597_640.5 };
-
 export function sadeSatiOf(engine: Engine, moonSign: number, birthJd: number, years: number, limits = LIMITS) {
   const endJd = Math.min(birthJd + years * YEAR, limits.lastJd);
   const fromJd = Math.max(birthJd - 8 * YEAR, limits.firstJd);

@@ -25,8 +25,9 @@ export interface DashaPeriod {
   lord: Graha;
   /** 1 = mahadasha, 2 = antardasha, 3 = pratyantardasha. */
   level: 1 | 2 | 3;
-  startJd: number;
-  endJd: number;
+  /** null: the boundary falls outside the ephemeris (before 1800 or after 2400). */
+  startJd: number | null;
+  endJd: number | null;
   periods?: DashaPeriod[];
 }
 
@@ -86,7 +87,7 @@ export function vimshottari(moonLongitude: number, depth: 1 | 2 | 3, yearsToJd: 
   collect(spans);
   const jd = yearsToJd([...offsets].sort((a, b) => a - b));
   const toPeriod = (s: Span): DashaPeriod => {
-    const p: DashaPeriod = { lord: s.lord, level: s.level, startJd: jd.get(s.start)!, endJd: jd.get(s.end)! };
+    const p: DashaPeriod = { lord: s.lord, level: s.level, startJd: jd.get(s.start) ?? null, endJd: jd.get(s.end) ?? null };
     if (s.periods) p.periods = s.periods.map(toPeriod);
     return p;
   };
@@ -103,10 +104,20 @@ export function vimshottari(moonLongitude: number, depth: 1 | 2 | 3, yearsToJd: 
  * Each reading is unwrapped against the TARGET, not the previous reading, so a
  * jump of many years cannot slip by a whole turn: the guess is always within a
  * degree or two of the answer.
+ *
+ * A boundary whose date would fall outside `range` (the ephemeris coverage) is
+ * left out of the map, as is every one further from birth: the dasha then
+ * reports it as unknown instead of the whole chart failing. The margin keeps
+ * Newton's steps inside the files.
  */
-export function solarYearClock(sunAt: (jd: number) => { longitude: number; speed: number }, birthJd: number): (offsets: number[]) => Map<number, number> {
+export function solarYearClock(
+  sunAt: (jd: number) => { longitude: number; speed: number },
+  birthJd: number,
+  range: { first: number; last: number } = { first: -Infinity, last: Infinity },
+): (offsets: number[]) => Map<number, number> {
   const HALF_SECOND = 0.5 / 86_400;
   const MEAN_SPEED = 360 / 365.256363; // degrees per day
+  const MARGIN_DAYS = 2;
   return (offsets) => {
     const out = new Map<number, number>();
     const birth = sunAt(birthJd);
@@ -119,6 +130,7 @@ export function solarYearClock(sunAt: (jd: number) => { longitude: number; speed
         // Short hops use the local speed; long ones the mean, which is closer over a year or more.
         const gap = target - uPrev;
         let t = tPrev + gap / (Math.abs(gap) > 30 ? MEAN_SPEED : speedPrev);
+        if (t < range.first + MARGIN_DAYS || t > range.last - MARGIN_DAYS) break; // beyond the files, and so is every later one
         let reading = sunAt(t);
         for (let i = 0; ; i++) {
           const u = target + normalizeSigned180(reading.longitude - target);

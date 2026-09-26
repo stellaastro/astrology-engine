@@ -33,6 +33,13 @@ export class OutOfRangeError extends Error {}
 // event search (up to three days either side) inside them.
 export const FIRST_YEAR = 1801;
 export const LAST_YEAR = 2398;
+/**
+ * The Julian days (UT) the files certainly cover, a day inside each end:
+ * 1800-01-02 to 2399-12-31. Searches that reach decades from the birth (the
+ * dasha, Sade Sati) stop here rather than let Swiss Ephemeris fall back to
+ * Moshier, which position() refuses.
+ */
+export const EPHEMERIS_JD = { first: 2_378_497.5, last: 2_597_640.5 } as const;
 
 export type Body = 'sun' | 'moon' | 'mars' | 'mercury' | 'jupiter' | 'venus' | 'saturn' | 'rahu';
 
