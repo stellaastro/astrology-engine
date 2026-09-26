@@ -9,6 +9,7 @@ import { EphemerisError, OutOfRangeError } from '../src/ephemeris';
 import { InputError, parseInput } from '../src/input';
 import { computePanchang, NoSunriseError } from '../src/panchang-day';
 import { CALCULATION_STANDARD_VERSION } from '../src/standard';
+import { computeMatch } from '../src/match';
 import { EPHE_PATH, inputAt, JHORA_CONFIG, makeConfig, makeEngine, SECOND_IN_DAYS } from './helpers';
 
 const VALID = {
@@ -196,6 +197,11 @@ describe(`golden output for ${CALCULATION_STANDARD_VERSION}`, () => {
       before1900: strip(computeChart(engine, inputAt('1850-06-15T06:00:00Z', 22.5726, 88.3639))),
       productionChart: strip(computeChart(production, parseInput(VALID))),
       productionPanchang: strip(computePanchang(production, inputAt('2026-09-25T06:30:00Z', 13.0827, 80.2707))),
+      // Since 1.7: Kundli Matching between the valid chart and the Chennai instant.
+      productionMatch: (() => {
+        const m = computeMatch(production, { bride: parseInput(VALID), groom: inputAt('2026-09-25T06:30:00Z', 13.0827, 80.2707) });
+        return { ...m, bride: strip(m.bride), groom: strip(m.groom), meta: { ...m.meta, calculatedAt: undefined } };
+      })(),
     };
     await expect(`${JSON.stringify(out, null, 1)}\n`).toMatchFileSnapshot(`./__snapshots__/${CALCULATION_STANDARD_VERSION}.json`);
   });

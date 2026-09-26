@@ -23,4 +23,7 @@
 // 1.6  2026-09-25  Dosha checks as placements: Manglik from the Lagna, Moon
 //                  and Venus; Kaal Sarp by longitude; Sade Sati and Dhaiya
 //                  from Saturn's sign changes, to the second (ADR-091).
-export const CALCULATION_STANDARD_VERSION = 'stella-jyotish-1.6';
+// 1.7  2026-09-26  Kundli Matching: Ashtakoota (Guna Milan, 36 points) from the
+//                  two Moons, through the birth-detail tables; traditional
+//                  exceptions named beside the score, never applied (ADR-091).
+export const CALCULATION_STANDARD_VERSION = 'stella-jyotish-1.7';

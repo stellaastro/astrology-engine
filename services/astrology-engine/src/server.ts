@@ -3,6 +3,7 @@ import { computeChart } from './chart';
 import type { Engine } from './engine';
 import { EphemerisError, OutOfRangeError } from './ephemeris';
 import { InputError, parseInput } from './input';
+import { computeMatch, parseMatchInput } from './match';
 import { NoSunriseError, computePanchang } from './panchang-day';
 import { CALCULATION_STANDARD_VERSION } from './standard';
 
@@ -35,6 +36,13 @@ async function readJson(req: IncomingMessage): Promise<unknown> {
     throw new HttpError(400, 'invalid_json', 'the body is not valid JSON');
   }
 }
+
+/**
+ * A Julian day (seven digits and a fraction) is a birth moment in disguise. The
+ * body is never logged; neither is a JD that a Swiss Ephemeris error message
+ * happens to quote (review, 2026-09-26).
+ */
+export const redactForLog = (text: string) => text.replace(/\b\d{6,7}\.\d+/g, '[jd]');
 
 /** Status for an error thrown while calculating. Only a fault of the engine is a 5xx. */
 function classify(error: unknown): { status: number; code: string; message: string } {
@@ -71,7 +79,7 @@ export function createEngineServer(engine: Engine, log: (line: string) => void =
     const path = (req.url ?? '/').split('?')[0];
     let status = 500;
     try {
-      if (path === '/health' || path === '/version' || path === '/v1/chart' || path === '/v1/panchang') {
+      if (path === '/health' || path === '/version' || path === '/v1/chart' || path === '/v1/panchang' || path === '/v1/match') {
         const wanted = path.startsWith('/v1/') ? 'POST' : 'GET';
         if (req.method !== wanted) throw new HttpError(405, 'method_not_allowed', `use ${wanted}`);
       }
@@ -83,6 +91,13 @@ export function createEngineServer(engine: Engine, log: (line: string) => void =
       if (path === '/version') {
         status = 200;
         return send(res, status, version(engine));
+      }
+      if (path === '/v1/match') {
+        const input = parseMatchInput(await readJson(req));
+        // Synchronous, like the others: both partners in one uninterrupted run.
+        const result = computeMatch(engine, input);
+        status = 200;
+        return send(res, status, result);
       }
       if (path === '/v1/chart' || path === '/v1/panchang') {
         const input = parseInput(await readJson(req));
@@ -96,7 +111,7 @@ export function createEngineServer(engine: Engine, log: (line: string) => void =
     } catch (error) {
       const { code, message } = classify(error);
       status = classify(error).status;
-      if (status >= 500) log(`error ${path}: ${(error as Error).stack ?? String(error)}`);
+      if (status >= 500) log(`error ${path}: ${redactForLog((error as Error).stack ?? String(error))}`);
       return send(res, status, { error: code, message });
     } finally {
       // Method, path, status and time only. Never the body: it is a birth date,

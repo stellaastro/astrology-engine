@@ -1,7 +1,7 @@
 import type { AddressInfo } from 'node:net';
 import type { Server } from 'node:http';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { createEngineServer } from '../src/server';
+import { createEngineServer, redactForLog } from '../src/server';
 import { CALCULATION_STANDARD_VERSION } from '../src/standard';
 import { makeEngine } from './helpers';
 
@@ -88,5 +88,47 @@ describe('logging', () => {
       expect(line).not.toContain('8.7139');
       expect(line).not.toContain('77.7567');
     }
+  });
+});
+
+describe('the error log', () => {
+  it('never carries a Julian day, which would date a birth', () => {
+    expect(redactForLog('EphemerisError: calc_ut(1) failed: jd 2441412.711806 is beyond the file')).toBe('EphemerisError: calc_ut(1) failed: jd [jd] is beyond the file');
+    // Ordinary numbers in a stack trace are left alone.
+    expect(redactForLog('at computeChart (dist/chart.js:51:13)')).toBe('at computeChart (dist/chart.js:51:13)');
+  });
+});
+
+describe('POST /v1/match', () => {
+  let server: Server;
+  let base: string;
+  beforeAll(async () => {
+    server = createEngineServer(makeEngine(), () => {});
+    await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
+    base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
+  });
+  afterAll(() => new Promise<void>((resolve) => server.close(() => resolve())));
+  const post = (body: unknown) => fetch(`${base}/v1/match`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+
+  it('matches two births and returns both Moons and the eight kootas', async () => {
+    const res = await post({ bride: BIRTH, groom: { ...BIRTH, localTime: '22:35:00', utcInstant: '1972-04-05T17:05:00Z' } });
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.ashtakoota.kootas).toHaveLength(8);
+    expect(body.ashtakoota.max).toBe(36);
+    expect(body.bride.moon.nakshatra.number).toBeGreaterThan(0);
+    expect(body.groom.manglik).toHaveProperty('present');
+    expect(body.meta.calculationStandardVersion).toBe(CALCULATION_STANDARD_VERSION);
+  });
+
+  it('refuses a third partner, and says whose details are wrong', async () => {
+    expect((await post({ bride: BIRTH, groom: BIRTH, witness: BIRTH })).status).toBe(400);
+    const res = await post({ bride: BIRTH, groom: { ...BIRTH, localDate: '1972-02-30' } });
+    expect(res.status).toBe(400);
+    expect((await res.json()).message).toMatch(/^groom: /);
+  });
+
+  it('accepts POST only', async () => {
+    expect((await fetch(`${base}/v1/match`)).status).toBe(405);
   });
 });
